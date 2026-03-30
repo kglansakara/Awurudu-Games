@@ -469,7 +469,7 @@ for(let i=0;i<18;i++){
 
 </div>
 
-<script> async function savePlayer(result) {await supabase.from('players').insert([{phone: playerPhone,qualified: result}]);}
+<script> async function savePlayer(result) {await supabase.from('players').insert([{Name: playerName,Phone: playerPhone,Qualified: result}]);}
   // ── State ──
   let playerName = '';
   let playerPhone = '';
