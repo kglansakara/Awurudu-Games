@@ -468,62 +468,78 @@ for(let i=0;i<18;i++){
   </div>
 
 </div>
-
+  
 <script>
 async function savePlayer(result) {
   const { data, error } = await supabase
     .from('players')
     .insert([
-      {Name: playerName, Phone: playerPhone, Qualified: result} ]);
+      { Name: playerName, Phone: playerPhone, Qualified: result }
+    ]);
 
-  if (error) {console.error('Supabase save error:', error); alert('Save failed: ' + error.message);} else {console.log('Saved successfully:', data);
-    alert('Saved successfully');}}
+  if (error) {
+    console.error('Supabase save error:', error);
+    alert('Save failed: ' + error.message);
+  } else {
+    console.log('Saved successfully:', data);
+    alert('Saved successfully');
+  }
+}
+
+// ── State ──
+let playerName = '';
+let playerPhone = '';
+let chancesLeft = 3;
+let totalChances = 3;
+let qualified = false;
+
+// ── Start Game ──
+function startGame() {
+  const name = document.getElementById('playerName').value.trim();
+  const phone = document.getElementById('playerPhone').value.trim();
+
+  if (!name) {
+    alert('Please enter your name! 🌸');
+    return;
+  }
+
+  if (!/^0[0-9]{9}$/.test(phone)) {
+    alert('Please enter a valid 10-digit mobile number starting with 0.');
+    return;
+  }
+
+  playerName = name;
+  playerPhone = phone;
+  chancesLeft = 3;
+
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('gameSection').style.display = 'block';
+  document.getElementById('playerDisplay').textContent = '👋 Welcome, ' + playerName + '!';
+
+  updateChancesDisplay();
+  renderPips();
+  initDice();
+  spawnConfetti(8);
+}
+
+function updateChancesDisplay() {
+  document.getElementById('chancesDisplay').textContent =
+    chancesLeft > 0
+      ? `🎲 ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} remaining`
+      : '🎲 No chances left';
+}
+
+function renderPips() {
+  const wrap = document.getElementById('chancesPips');
+  wrap.innerHTML = '';
+  for (let i = 0; i < totalChances; i++) {
+    const pip = document.createElement('div');
+    pip.className = 'chance-pip ' + (i < chancesLeft ? 'active' : 'used');
+    pip.textContent = i < chancesLeft ? '🎲' : '✗';
+    wrap.appendChild(pip);
+  }
+}
 </script>
-  // ── State ──
-  let playerName = '';
-  let playerPhone = '';
-  let chancesLeft = 3;
-  let totalChances = 3;
-  let qualified = false;
-
-  // ── Start Game ──
-  function startGame() {
-    const name = document.getElementById('playerName').value.trim();
-    const phone = document.getElementById('playerPhone').value.trim();
-    if (!name) { alert('Please enter your name! 🌸'); return; }
-    if (!/^0[0-9]{9}$/.test(phone)) { alert('Please enter a valid 10-digit mobile number starting with 0.'); return; }
-
-    playerName = name;
-    playerPhone = phone;
-    chancesLeft = 3;
-
-    document.getElementById('formCard').style.display = 'none';
-    document.getElementById('gameSection').style.display = 'block';
-    document.getElementById('playerDisplay').textContent = '👋 Welcome, ' + playerName + '!';
-
-    updateChancesDisplay();
-    renderPips();
-    initDice();
-    spawnConfetti(8);
-  }
-
-  function updateChancesDisplay() {
-    document.getElementById('chancesDisplay').textContent =
-      chancesLeft > 0
-        ? `🎲 ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} remaining`
-        : '🎲 No chances left';
-  }
-
-  function renderPips() {
-    const wrap = document.getElementById('chancesPips');
-    wrap.innerHTML = '';
-    for (let i = 0; i < totalChances; i++) {
-      const pip = document.createElement('div');
-      pip.className = 'chance-pip ' + (i < chancesLeft ? 'active' : 'used');
-      pip.textContent = i < chancesLeft ? '🎲' : '✗';
-      wrap.appendChild(pip);
-    }
-  }
 
   // ── Dice ──
   const dotConfigs = {
