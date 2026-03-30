@@ -469,7 +469,27 @@ for(let i=0;i<18;i++){
 
 </div>
 
-<script> async function savePlayer(result) {await supabase.from('players').insert([{Name: playerName,Phone: playerPhone,Qualified: result}]);}
+<script>
+async function savePlayer(result) {
+  const { data, error } = await supabase
+    .from('players')
+    .insert([
+      {
+        Name: playerName,
+        Phone: playerPhone,
+        Qualified: result
+      }
+    ]);
+
+  if (error) {
+    console.error('Supabase save error:', error);
+    alert('Save failed: ' + error.message);
+  } else {
+    console.log('Saved successfully:', data);
+    alert('Saved successfully');
+  }
+}
+</script>
   // ── State ──
   let playerName = '';
   let playerPhone = '';
