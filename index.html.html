@@ -474,21 +474,10 @@ async function savePlayer(result) {
   const { data, error } = await supabase
     .from('players')
     .insert([
-      {
-        Name: playerName,
-        Phone: playerPhone,
-        Qualified: result
-      }
-    ]);
+      {Name: playerName, Phone: playerPhone, Qualified: result} ]);
 
-  if (error) {
-    console.error('Supabase save error:', error);
-    alert('Save failed: ' + error.message);
-  } else {
-    console.log('Saved successfully:', data);
-    alert('Saved successfully');
-  }
-}
+  if (error) {console.error('Supabase save error:', error); alert('Save failed: ' + error.message);} else {console.log('Saved successfully:', data);
+    alert('Saved successfully');}}
 </script>
   // ── State ──
   let playerName = '';
