@@ -475,7 +475,7 @@ async function savePlayer(result) {
   const { data, error } = await supabase
     .from('players')
     .insert([
-      { Name: playerName, Phone: playerPhone, Qualified: result }
+      { Name: playerName, Phone: playerPhone, Qualified: result ,played_at: new Date().toISOString() }
     ]);
 
   if (error) {
