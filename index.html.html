@@ -6,6 +6,65 @@
 <title>Softlogic Pharmaceuticals – Awurudu Keta Sellama 🎲</title>
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
+  /* ══════════════════════════════════════
+   COMPANY LOGO — top-left corner
+══════════════════════════════════════ */
+.logo-wrap {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 100;
+  pointer-events: none;
+  animation: logoFadeIn 1.2s ease forwards;
+}
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0px);   }
+}
+.logo-inner {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.07),
+    rgba(245,200,66,0.06));
+  border: 1px solid rgba(245,200,66,0.20);
+  border-radius: 16px;
+  padding: 10px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(245,200,66,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: box-shadow 0.3s ease;
+  animation: logoPulse 4s ease-in-out infinite alternate;
+}
+@keyframes logoPulse {
+  from { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 12px rgba(245,200,66,0.08); }
+  to   { box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 24px rgba(245,200,66,0.18); }
+}
+.logo-inner img {
+  width: 130px;
+  height: auto;
+  display: block;
+  filter: brightness(1) drop-shadow(0 2px 8px rgba(245,200,66,0.25));
+}
+
+/* Golden shimmer line under logo */
+.logo-shimmer {
+  height: 1.5px;
+  margin-top: 8px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(245,200,66,0.6),
+    transparent);
+  border-radius: 2px;
+  animation: shimmerSlide 2.5s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+@keyframes shimmerSlide {
+  0%   { background-position: -100% 0; opacity: 0.4; }
+  50%  { background-position: 100% 0;  opacity: 1.0; }
+  100% { background-position: -100% 0; opacity: 0.4; }
+}
   :root {
     --gold: #f5c842;
     --gold2: #e8a800;
@@ -402,7 +461,13 @@
 
 <!-- Animated background -->
 <div class="bg-wrap"></div>
-  <!-- Awurudu Sun — bottom left corner -->
+  <!-- Company Logo — top left -->
+<div class="logo-wrap">
+  <div class="logo-inner">
+    <img src="Untitled-1G.png" alt="Softlogic Pharmaceuticals">
+    <div class="logo-shimmer"></div>
+  </div>
+</div>
 <!-- Awurudu Sun — top right corner -->
 <div class="sun-wrap">
   <div class="sun-glow"></div>
