@@ -52,129 +52,67 @@
     100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity:0; }
   }
   /* ══════════════════════════════════════
-   SUN ILLUSTRATION — bottom-left corner
+   SUN ILLUSTRATION — top-right corner
 ══════════════════════════════════════ */
 .sun-wrap {
   position: fixed;
-  bottom: -80px;
-  left: -80px;
-  width: 340px;
-  height: 340px;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
   z-index: 2;
   pointer-events: none;
 }
+
+/* Ambient glow behind sun */
 .sun-glow {
   position: absolute;
-  inset: -60px;
+  inset: -40px;
   border-radius: 50%;
   background: radial-gradient(circle,
-    rgba(245,200,66,0.22) 0%,
-    rgba(232,93,4,0.10) 40%,
+    rgba(245,200,66,0.30) 0%,
+    rgba(232,93,4,0.15) 45%,
     transparent 70%);
   animation: glowPulse 3s ease-in-out infinite alternate;
 }
 @keyframes glowPulse {
   from { transform: scale(1);    opacity: 0.7; }
-  to   { transform: scale(1.15); opacity: 1;   }
+  to   { transform: scale(1.18); opacity: 1.0; }
 }
-.sun-rays {
+
+/* SVG sun slowly rotates */
+.sun-svg-wrap {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  animation: rotateSun 18s linear infinite;
+  animation: rotateSun 30s linear infinite;
+  filter:
+    drop-shadow(0 0 18px rgba(245,200,66,0.7))
+    drop-shadow(0 0 40px rgba(232,93,4,0.4));
 }
 @keyframes rotateSun {
   from { transform: rotate(0deg);   }
   to   { transform: rotate(360deg); }
 }
-.sun-rays::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,   rgba(245,200,66,0.55) 6deg,
-    transparent 12deg,  rgba(245,200,66,0.55) 18deg,
-    transparent 24deg,  rgba(245,200,66,0.55) 30deg,
-    transparent 36deg,  rgba(245,200,66,0.55) 42deg,
-    transparent 48deg,  rgba(245,200,66,0.55) 54deg,
-    transparent 60deg,  rgba(245,200,66,0.55) 66deg,
-    transparent 72deg,  rgba(245,200,66,0.55) 78deg,
-    transparent 84deg,  rgba(245,200,66,0.55) 90deg,
-    transparent 96deg,  rgba(245,200,66,0.55) 102deg,
-    transparent 108deg, rgba(245,200,66,0.55) 114deg,
-    transparent 120deg, rgba(245,200,66,0.55) 126deg,
-    transparent 132deg, rgba(245,200,66,0.55) 138deg,
-    transparent 144deg, rgba(245,200,66,0.55) 150deg,
-    transparent 156deg, rgba(245,200,66,0.55) 162deg,
-    transparent 168deg, rgba(245,200,66,0.55) 174deg,
-    transparent 180deg, rgba(245,200,66,0.55) 186deg,
-    transparent 192deg, rgba(245,200,66,0.55) 198deg,
-    transparent 204deg, rgba(245,200,66,0.55) 210deg,
-    transparent 216deg, rgba(245,200,66,0.55) 222deg,
-    transparent 228deg, rgba(245,200,66,0.55) 234deg,
-    transparent 240deg, rgba(245,200,66,0.55) 246deg,
-    transparent 252deg, rgba(245,200,66,0.55) 258deg,
-    transparent 264deg, rgba(245,200,66,0.55) 270deg,
-    transparent 276deg, rgba(245,200,66,0.55) 282deg,
-    transparent 288deg, rgba(245,200,66,0.55) 294deg,
-    transparent 300deg, rgba(245,200,66,0.55) 306deg,
-    transparent 312deg, rgba(245,200,66,0.55) 318deg,
-    transparent 324deg, rgba(245,200,66,0.55) 330deg,
-    transparent 336deg, rgba(245,200,66,0.55) 342deg,
-    transparent 348deg, rgba(245,200,66,0.55) 354deg,
-    transparent 360deg
-  );
-  mask: radial-gradient(circle, transparent 38%, black 40%, black 100%);
-  -webkit-mask: radial-gradient(circle, transparent 38%, black 40%, black 100%);
-}
-.sun-core {
-  position: absolute;
-  inset: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 35%,
-    #fff8d0 0%,
-    #f5c842 35%,
-    #e8a800 65%,
-    #c97a00 100%);
-  box-shadow:
-    0 0 40px rgba(245,200,66,0.8),
-    0 0 80px rgba(232,93,4,0.4),
-    0 0 120px rgba(232,93,4,0.2);
-  animation: coreBreath 3s ease-in-out infinite alternate;
-}
-@keyframes coreBreath {
-  from { box-shadow: 0 0 40px rgba(245,200,66,0.8), 0 0 80px rgba(232,93,4,0.4); }
-  to   { box-shadow: 0 0 60px rgba(245,200,66,1.0), 0 0 120px rgba(232,93,4,0.6); }
-}
-.sun-face {
+
+/* Face does NOT rotate — stays upright */
+.sun-face-wrap {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4.2rem;
   animation: faceFloat 4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
 }
 @keyframes faceFloat {
-  from { transform: translateY(0px) scale(1);    }
-  to   { transform: translateY(-6px) scale(1.04); }
+  from { transform: translate(8px, -8px) scale(1);    }
+  to   { transform: translate(12px, -4px) scale(1.04); }
 }
-/* inner slow counter-rotating ring for depth */
-.sun-inner-ring {
-  position: absolute;
-  inset: 48px;
+.sun-face-img {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  border: 2px dashed rgba(245,200,66,0.3);
-  animation: rotateSunReverse 26s linear infinite;
+  object-fit: cover;
 }
-@keyframes rotateSunReverse {
-  from { transform: rotate(0deg);    }
-  to   { transform: rotate(-360deg); }
-}
-
   /* ── Main wrap ── */
   .main {
     position: relative; z-index: 10;
@@ -465,12 +403,114 @@
 <!-- Animated background -->
 <div class="bg-wrap"></div>
   <!-- Awurudu Sun — bottom left corner -->
+<!-- Awurudu Sun — top right corner -->
 <div class="sun-wrap">
   <div class="sun-glow"></div>
-  <div class="sun-rays"></div>
-  <div class="sun-inner-ring"></div>
-  <div class="sun-core"></div>
-  <div class="sun-face">☀️</div>
+
+  <!-- Rotating rays as SVG -->
+  <div class="sun-svg-wrap">
+    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="320" height="320">
+      <defs>
+        <radialGradient id="coreGrad" cx="42%" cy="38%" r="58%">
+          <stop offset="0%"   stop-color="#fff8d0"/>
+          <stop offset="40%"  stop-color="#f5c842"/>
+          <stop offset="75%"  stop-color="#e8a800"/>
+          <stop offset="100%" stop-color="#c97a00"/>
+        </radialGradient>
+        <radialGradient id="rayGrad" cx="50%" cy="0%" r="100%">
+          <stop offset="0%"   stop-color="#f5c842"/>
+          <stop offset="100%" stop-color="#e85d04"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Wavy golden rays (outer) -->
+      <g transform="translate(160,160)">
+        <!-- 16 alternating rays: wide golden + narrow red -->
+        <!-- Ray 1 wide gold -->
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95"/>
+        <!-- Ray 1 narrow red -->
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(11.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(22.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(33.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(45)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(56.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(67.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(78.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(90)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(101.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(112.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(123.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(135)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(146.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(157.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(168.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(180)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(191.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(202.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(213.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(225)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(236.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(247.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(258.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(270)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(281.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(292.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(303.75)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(315)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(326.25)"/>
+
+        <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(337.5)"/>
+        <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(348.75)"/>
+
+        <!-- Sun core circle -->
+        <circle cx="0" cy="0" r="72" fill="url(#coreGrad)" stroke="#c97a00" stroke-width="2"/>
+
+        <!-- Engraving detail lines on core -->
+        <circle cx="0" cy="0" r="68" fill="none" stroke="rgba(180,120,0,0.3)" stroke-width="1" stroke-dasharray="4 6"/>
+        <circle cx="0" cy="0" r="58" fill="none" stroke="rgba(180,120,0,0.2)" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Face stays still -->
+  <div class="sun-face-wrap">
+    <svg viewBox="0 0 120 120" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Face base -->
+      <circle cx="60" cy="60" r="52" fill="#f5c842" opacity="0.0"/>
+      <!-- Eyes -->
+      <ellipse cx="44" cy="52" rx="7" ry="8" fill="#5c3a00"/>
+      <ellipse cx="76" cy="52" rx="7" ry="8" fill="#5c3a00"/>
+      <ellipse cx="44" cy="52" rx="3" ry="4" fill="#2a1800"/>
+      <ellipse cx="76" cy="52" rx="3" ry="4" fill="#2a1800"/>
+      <!-- Eye shine -->
+      <circle cx="46" cy="50" r="2" fill="rgba(255,255,255,0.6)"/>
+      <circle cx="78" cy="50" r="2" fill="rgba(255,255,255,0.6)"/>
+      <!-- Eyebrows -->
+      <path d="M36,43 Q44,39 52,43" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M68,43 Q76,39 84,43" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Nose -->
+      <path d="M58,58 Q56,68 52,72 Q60,75 68,72 Q64,68 62,58" fill="rgba(180,100,0,0.35)" stroke="none"/>
+      <!-- Smile -->
+      <path d="M44,82 Q60,94 76,82" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Cheek blush -->
+      <ellipse cx="34" cy="72" rx="9" ry="6" fill="rgba(232,93,4,0.18)"/>
+      <ellipse cx="86" cy="72" rx="9" ry="6" fill="rgba(232,93,4,0.18)"/>
+    </svg>
+  </div>
 </div>
 
 <!-- Floating petals -->
