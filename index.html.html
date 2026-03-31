@@ -949,7 +949,81 @@ function renderPips() {
       alert('Copied to clipboard! Share it with your friends 🌸');
     }
   }
+  async function runDebug() {
+  const panel = document.getElementById('debugPanel');
+  const log   = document.getElementById('debugLog');
+  panel.style.display = 'block';
+
+  // Step 1 — check client exists
+  log.innerHTML = '1️⃣ Checking Supabase client...';
+  if (typeof supabaseClient === 'undefined') {
+    log.innerHTML += '<br>❌ supabaseClient is NOT defined!<br>Check your script order.';
+    return;
+  }
+  log.innerHTML += '<br>✅ Client exists';
+
+  // Step 2 — try a SELECT
+  log.innerHTML += '<br><br>2️⃣ Testing SELECT...';
+  const { data: sel, error: selErr } = await supabaseClient
+    .from('players')
+    .select('*')
+    .limit(1);
+
+  if (selErr) {
+    log.innerHTML += `<br>❌ SELECT failed:<br>${selErr.message}<br>Code: ${selErr.code}`;
+  } else {
+    log.innerHTML += `<br>✅ SELECT works! Rows: ${sel.length}`;
+  }
+
+  // Step 3 — try INSERT
+  log.innerHTML += '<br><br>3️⃣ Testing INSERT...';
+  const { data: ins, error: insErr } = await supabaseClient
+    .from('players')
+    .insert([{
+      Name: 'TEST_USER',
+      Phone: '0700000000',
+      Qualified: false,
+      played_at: new Date().toISOString()
+    }]);
+
+  if (insErr) {
+    log.innerHTML += `<br>❌ INSERT failed:<br>${insErr.message}<br>Code: ${insErr.code}`;
+
+    // Common error hints
+    if (insErr.code === '42501') {
+      log.innerHTML += '<br>⚠️ RLS is blocking! Disable RLS in Supabase.';
+    }
+    if (insErr.message.includes('anon')) {
+      log.innerHTML += '<br>⚠️ Wrong API key!';
+    }
+    if (insErr.code === 'PGRST116') {
+      log.innerHTML += '<br>⚠️ Table name wrong! Check capitalisation.';
+    }
+  } else {
+    log.innerHTML += '<br>✅ INSERT works! Check Supabase table now.';
+  }
+}
+    <!-- TEMP DEBUG — remove after fixing -->
+<div id="debugPanel" style="
+  position:fixed; bottom:80px; left:12px; z-index:9999;
+  background:rgba(0,0,0,0.85); border:1px solid #f5c842;
+  border-radius:12px; padding:12px 16px; max-width:280px;
+  font-size:11px; font-family:monospace; color:#f5d98a;
+  display:none;
+">
+  <div id="debugLog">Waiting...</div>
+</div>
+  
+
+<button onclick="runDebug()" style="
+  position:fixed; bottom:80px; left:12px; z-index:9999;
+  background:#f5c842; color:#1a0a00; border:none;
+  border-radius:8px; padding:8px 14px; font-weight:700;
+  font-size:12px; cursor:pointer;
+">🔍 Test Supabase</button>
+  
 </script>
+
 </body>
 </html>
 
