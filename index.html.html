@@ -950,33 +950,6 @@ function renderPips() {
     }
   }
 </script>
-  <!-- Scroll Down Indicator -->
-<div class="scroll-indicator" id="scrollIndicator" onclick="scrollToPlay()">
-  <div class="scroll-text">Scroll to Play</div>
-  <div class="scroll-circle">
-    <div class="scroll-arrows">
-      <div class="scroll-arrow"></div>
-      <div class="scroll-arrow"></div>
-      <div class="scroll-arrow"></div>
-    </div>
-  </div>
-</div>
-  // Scroll indicator — hide when user scrolls down
-function scrollToPlay() {
-  document.getElementById('formCard').scrollIntoView({ 
-    behavior: 'smooth', 
-    block: 'center' 
-  });
-}
-
-window.addEventListener('scroll', () => {
-  const indicator = document.getElementById('scrollIndicator');
-  if (window.scrollY > 80) {
-    indicator.classList.add('hidden');
-  } else {
-    indicator.classList.remove('hidden');
-  }
-});
 </body>
 </html>
 
