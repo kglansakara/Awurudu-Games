@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Softlogic Pharmaceuticals – Awurudu Keta Sellama 🎲</title>
@@ -344,13 +343,23 @@
 <div class="bg-wrap"></div>
 
 <!-- Floating petals -->
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL = "https://xeictkgqnfhqgwzdlbfw.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlaWN0a2dxbmZocWd3emRsYmZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NjAxNDEsImV4cCI6MjA5MDQzNjE0MX0.CSD-HhjDoJCadOAh38Bpx3ODS0AZ-yPdPCm_dh1imBE";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-console.log("Supabase object:", supabase);
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+async function testConnection() {    const { data, error } = await supabaseClient
+      .from('players')
+      .select('*')
+      .limit(1);
+    if (error) {
+      console.error('❌ Supabase connection error:', error.message);
+    } else {
+      console.log('✅ Supabase connected successfully!', data);
+    }
+  
 </script>
 
 <script>
@@ -371,9 +380,9 @@ for(let i=0;i<18;i++){
 
   <!-- Header -->
   <div class="header">
-    <div class="brand-tag">🏥 Softlogic Pharma</div>
-    <div class="headline">Awurudu Keta Sellama</div>
-    <div class="sub-headline"> අවුරුදු කැට සෙල්ලම  · New Year Lucky Dice</div>
+    <div class="brand-tag">🏥 Softlogic Pharmacetuicals</div>
+    <div class="headline">අවුරුදු කැට සෙල්ලම </div>
+    <div class="sub-headline"> Awurudu Keta Sellama · New Year Lucky Dice</div>
     <div class="sub-headline"> Keta Geseema (Traditional Sinhala New Year Game)</div>
 <div> <p style="font-size: 13px;">Keta Geseema යනු සින්හල අලුත් අවුරුදු සම්ප්‍රදායික ක්‍රීඩාවක් වන අතර, එය ගෙවල්වල හෝ Keta Pola ලෙස හැඳින්වෙන විශේෂ ස්ථානවල ක්‍රීඩා කරනු ලැබේ. මෙම ක්‍රීඩාව සඳහා මී ගොනුවල කොම්බයෙන් සෑදූ, මුහුණු 6ක් ඇති කැටයක් භාවිතා කරන අතර, එහි 1–6 හෝ 3, 6, 9, 12, 15, 18 ලෙස අගයන් සලකුණු කර ඇත. ක්‍රීඩකයන් එකිනෙකාට පවරා කැටය වක්‍ර පුවරුවක් මතට හෙළන අතර, වැඩිම අගය ලබාගන්නා පුද්ගලයා ජයග්‍රාහකයා වේ.
 කිහිප දෙනෙකුට එකම වැඩිම අගය ලැබේ නම්, ජයග්‍රාහකයෙක් තෝරා ගැනීමට නැවත ක්‍රීඩාව ක්‍රීඩා කරනු ලැබේ. මෙම ක්‍රීඩාව බොහෝ විට මුදල් හෝ භාණ්ඩ මත ක්‍රීඩා කරන අතර, එයට පැතිපැත්තෙන් බලන අයටද පැරැණි වශයෙන් ඔට්ටු තැබීමේ අවස්ථාවක් ඇත. ඔවුන්ට ප්‍රතිඵලය උසස් අගයක් (12, 15, 18) වේද හෝ පහළ අගයක් (3, 6, 9) වේද යන්න පිළිබඳව ඔට්ටු තැබිය හැක<p/></div>
@@ -385,14 +394,14 @@ for(let i=0;i<18;i++){
   <div class="info-card">
     <div class="info-icon">🎯</div>
     <div>
-      <div class="info-title">ජයග්‍රාහකයින් 2 දෙනෙකු තෝරාගනු ලැබේ · How to Win</div>
+      <div class="info-title">ජයග්‍රාහකයින් 5 දෙනෙකු තෝරාගනු ලැබේ · How to Win</div>
       <div class="info-text">
         Roll the dice and try your luck this Avurudu! If all three dice show the <strong style="color:var(--gold)">same number</strong> — you earn a lucky entry into our grand draw. Two winners will be selected from all qualified entries after the campaign.
       </div>
       <div class="chances-row">
         <div class="chance-badge">🎲 3 Chances Per Player</div>
-        <div class="chance-badge">🏆 2 Grand Winners</div>
-        <div class="chance-badge">📅 Final Draw After Campaign</div>
+        <div class="chance-badge">🏆 5 Grand Winners to CareSens N Eco Glucometer</div>
+        <div class="chance-badge">📅 Final Draw After Game Campaign</div>
       </div>
     </div>
   </div>
