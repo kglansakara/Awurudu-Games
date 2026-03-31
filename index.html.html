@@ -601,7 +601,7 @@ function renderPips() {
     ];
 
     // Small chance to win: ~15% base, increases with fewer chances
-    const winChance = chancesLeft === 1 ? 0.18 : 0.10;
+    const winChance = 0.015;
     const forceWin = Math.random() < winChance;
     if (forceWin) { vals[1] = vals[0]; vals[2] = vals[0]; }
 
