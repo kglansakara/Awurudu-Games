@@ -3,677 +3,405 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Softlogic Pharmaceuticals â€“ Awurudu Keta Sellama ðŸŽ²</title>
+<title>Softlogic Pharmaceuticals – Awurudu Keta Sellama 🎲</title>
 <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Noto+Sans+Sinhala:wght@400;700&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-
-
-/* Glowing circle behind arrows */
 .scroll-circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 52px; height: 52px; border-radius: 50%;
   border: 1.5px solid rgba(245,200,66,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(245,200,66,0.06);
-  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(245,200,66,0.06); backdrop-filter: blur(6px);
   box-shadow: 0 0 20px rgba(245,200,66,0.15);
-  animation: circlePulse 2s ease-in-out infinite alternate;
-  margin-top: 4px;
+  animation: circlePulse 2s ease-in-out infinite alternate; margin-top: 4px;
 }
 @keyframes circlePulse {
   from { box-shadow: 0 0 12px rgba(245,200,66,0.15); border-color: rgba(245,200,66,0.25); }
   to   { box-shadow: 0 0 28px rgba(245,200,66,0.35); border-color: rgba(245,200,66,0.55); }
 }
-
-@media (max-width: 480px) {
-  .scroll-indicator {
-    bottom: 20px;
-    right: 14px;
-  }
-}
-
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   COMPANY LOGO â€” top-left corner
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-..logo-wrap {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 100;
-  pointer-events: none;
+.logo-wrap {
+  position: fixed; top: 18px; left: 18px; z-index: 100; pointer-events: none;
   animation: logoFadeIn 1.2s ease forwards;
 }
 @keyframes logoFadeIn {
   from { opacity: 0; transform: translateY(-12px); }
-  to   { opacity: 1; transform: translateY(0px);   }
+  to   { opacity: 1; transform: translateY(0px); }
 }
 .logo-inner {
-  background: linear-gradient(135deg,
-    rgba(255,255,255,0.07),
-    rgba(245,200,66,0.06));
-  border: 1px solid rgba(245,200,66,0.20);
-  border-radius: 16px;
-  padding: 10px 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow:
-    0 4px 24px rgba(0,0,0,0.4),
-    0 0 0 1px rgba(245,200,66,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-  transition: box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(245,200,66,0.06));
+  border: 1px solid rgba(245,200,66,0.20); border-radius: 16px; padding: 10px 16px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,200,66,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
   animation: logoPulse 4s ease-in-out infinite alternate;
 }
 @keyframes logoPulse {
   from { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 12px rgba(245,200,66,0.08); }
   to   { box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 24px rgba(245,200,66,0.18); }
 }
-.logo-inner img {
-  width: 130px;
-  height: auto;
-  display: block;
-  filter: brightness(1) drop-shadow(0 2px 8px rgba(245,200,66,0.25));
-}
-
-/* Golden shimmer line under logo */
+.logo-inner img { width: 130px; height: auto; display: block; filter: brightness(1) drop-shadow(0 2px 8px rgba(245,200,66,0.25)); }
 .logo-shimmer {
-  height: 1.5px;
-  margin-top: 8px;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(245,200,66,0.6),
-    transparent);
-  border-radius: 2px;
-  animation: shimmerSlide 2.5s ease-in-out infinite;
-  background-size: 200% 100%;
+  height: 1.5px; margin-top: 8px;
+  background: linear-gradient(90deg, transparent, rgba(245,200,66,0.6), transparent);
+  border-radius: 2px; animation: shimmerSlide 2.5s ease-in-out infinite;
 }
 @keyframes shimmerSlide {
-  0%   { background-position: -100% 0; opacity: 0.4; }
-  50%  { background-position: 100% 0;  opacity: 1.0; }
-  100% { background-position: -100% 0; opacity: 0.4; }
+  0%   { opacity: 0.4; } 50% { opacity: 1.0; } 100% { opacity: 0.4; }
 }
-  :root {
-    --gold: #f5c842;
-    --gold2: #e8a800;
-    --deep: #1a0a00;
-    --orange: #e85d04;
-    --red: #c1121f;
-    --green: #2d6a4f;
-    --cream: #fff8e7;
-    --light: #fff3cd;
-    --shadow: 0 8px 32px rgba(0,0,0,0.35);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--deep);
-    color: var(--cream);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* â”€â”€ Animated background â”€â”€ */
-  .bg-wrap {
-    position: fixed; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse at 20% 20%, #3d1500 0%, #1a0a00 40%, #0d0500 100%);
-    overflow: hidden;
-  }
-  .bg-wrap::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 15% 85%, rgba(245,200,66,.12) 0%, transparent 40%),
-      radial-gradient(circle at 85% 15%, rgba(232,93,4,.10) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(193,18,31,.06) 0%, transparent 60%);
-    animation: bgPulse 6s ease-in-out infinite alternate;
-  }
-  @keyframes bgPulse { from { opacity:.7 } to { opacity:1 } }
-
-  /* Floating petals */
-  .petal { position: fixed; font-size: 1.6rem; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity:.7; }
-  @keyframes fall {
-    0%   { transform: translateY(-60px) rotate(0deg) translateX(0); opacity:.8; }
-    100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity:0; }
-  }
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   SUN ILLUSTRATION â€” top-right corner
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-.sun-wrap {
-  position: fixed;
-  top: -100px;
-  right: -100px;
-  width: 320px;
-  height: 320px;
-  z-index: 2;
-  pointer-events: none;
+:root {
+  --gold: #f5c842; --gold2: #e8a800; --deep: #1a0a00;
+  --orange: #e85d04; --red: #c1121f; --green: #2d6a4f;
+  --cream: #fff8e7; --light: #fff3cd; --shadow: 0 8px 32px rgba(0,0,0,0.35);
 }
-
-/* Ambient glow behind sun */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(--cream); min-height: 100vh; overflow-x: hidden; }
+.bg-wrap {
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 20% 20%, #3d1500 0%, #1a0a00 40%, #0d0500 100%);
+  overflow: hidden;
+}
+.bg-wrap::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 85%, rgba(245,200,66,.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(232,93,4,.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(193,18,31,.06) 0%, transparent 60%);
+  animation: bgPulse 6s ease-in-out infinite alternate;
+}
+@keyframes bgPulse { from { opacity:.7 } to { opacity:1 } }
+.petal { position: fixed; font-size: 1.6rem; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity:.7; }
+@keyframes fall {
+  0%   { transform: translateY(-60px) rotate(0deg) translateX(0); opacity:.8; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity:0; }
+}
+.sun-wrap { position: fixed; top: -100px; right: -100px; width: 320px; height: 320px; z-index: 2; pointer-events: none; }
 .sun-glow {
-  position: absolute;
-  inset: -40px;
-  border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(245,200,66,0.30) 0%,
-    rgba(232,93,4,0.15) 45%,
-    transparent 70%);
+  position: absolute; inset: -40px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,200,66,0.30) 0%, rgba(232,93,4,0.15) 45%, transparent 70%);
   animation: glowPulse 3s ease-in-out infinite alternate;
 }
 @keyframes glowPulse {
-  from { transform: scale(1);    opacity: 0.7; }
+  from { transform: scale(1); opacity: 0.7; }
   to   { transform: scale(1.18); opacity: 1.0; }
 }
-
-/* SVG sun slowly rotates */
 .sun-svg-wrap {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   animation: rotateSun 30s linear infinite;
-  filter:
-    drop-shadow(0 0 18px rgba(245,200,66,0.7))
-    drop-shadow(0 0 40px rgba(232,93,4,0.4));
+  filter: drop-shadow(0 0 18px rgba(245,200,66,0.7)) drop-shadow(0 0 40px rgba(232,93,4,0.4));
 }
-@keyframes rotateSun {
-  from { transform: rotate(0deg);   }
-  to   { transform: rotate(360deg); }
-}
-
-/* Face does NOT rotate â€” stays upright */
+@keyframes rotateSun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .sun-face-wrap {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   animation: faceFloat 4s ease-in-out infinite alternate;
 }
 @keyframes faceFloat {
-  from { transform: translate(8px, -8px) scale(1);    }
+  from { transform: translate(8px, -8px) scale(1); }
   to   { transform: translate(12px, -4px) scale(1.04); }
 }
-.sun-face-img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
+.main { position: relative; z-index: 10; max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+.header { text-align: center; padding: 32px 20px 16px; }
+.brand-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--gold2), var(--gold));
+  color: var(--deep); font-weight: 700; font-size: .75rem; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 16px; border-radius: 20px; margin-bottom: 14px;
 }
-  /* â”€â”€ Main wrap â”€â”€ */
-  .main {
-    position: relative; z-index: 10;
-    max-width: 860px; margin: 0 auto;
-    padding: 24px 16px 60px;
-  }
-
-  /* â”€â”€ Header â”€â”€ */
-  .header {
-    text-align: center;
-    padding: 32px 20px 16px;
-  }
-  .brand-tag {
-    display: inline-block;
-    background: linear-gradient(90deg, var(--gold2), var(--gold));
-    color: var(--deep);
-    font-weight: 700; font-size: .75rem; letter-spacing: 2px; text-transform: uppercase;
-    padding: 4px 16px; border-radius: 20px; margin-bottom: 14px;
-  }
-  .headline {
-    font-family: 'Yatra One', cursive;
-    font-size: clamp(2rem, 6vw, 3.4rem);
-    line-height: 1.15;
-    background: linear-gradient(135deg, var(--gold), #fff5c0, var(--gold2));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 8px rgba(245,200,66,.4));
-  }
-  .sub-headline {
-    font-size: clamp(.85rem, 2.5vw, 1.05rem);
-    color: #f5d98a; margin-top: 8px; opacity: .9;
-  }
-  .divider {
-    display: flex; align-items: center; gap: 12px;
-    margin: 18px auto; max-width: 340px;
-  }
-  .divider span { flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--gold2), transparent); }
-  .divider em { font-style: normal; font-size: 1.4rem; }
-
-  /* â”€â”€ Info card â”€â”€ */
-  .info-card {
-    background: linear-gradient(135deg, rgba(245,200,66,.13), rgba(232,93,4,.08));
-    border: 1px solid rgba(245,200,66,.25);
-    border-radius: 20px; padding: 22px 24px;
-    margin-bottom: 28px; backdrop-filter: blur(4px);
-    display: flex; gap: 18px; align-items: flex-start;
-  }
-  .info-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: 2px; }
-  .info-title { font-weight: 700; font-size: 1.05rem; color: var(--gold); margin-bottom: 6px; }
-  .info-text { font-size: .88rem; line-height: 1.65; color: #f5d98a; opacity:.9; }
-  .chances-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-  .chance-badge {
-    background: rgba(245,200,66,.15); border: 1px solid rgba(245,200,66,.35);
-    border-radius: 30px; padding: 4px 14px; font-size: .8rem; color: var(--gold);
-    display: flex; align-items: center; gap: 6px;
-  }
-
-  /* â”€â”€ Form Card â”€â”€ */
-  .form-card {
-    background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    border: 1px solid rgba(245,200,66,.2);
-    border-radius: 24px; padding: 32px 28px;
-    margin-bottom: 28px;
-  }
-  .form-title { font-family: 'Yatra One', cursive; font-size: 1.4rem; color: var(--gold); margin-bottom: 20px; text-align: center; }
-  .input-group { margin-bottom: 16px; }
-  .input-group label { display: block; font-size: .8rem; color: #f5d98a; margin-bottom: 6px; font-weight: 600; letter-spacing: .5px; }
-  .input-group input {
-    width: 100%; padding: 13px 16px;
-    background: rgba(255,255,255,.07); border: 1px solid rgba(245,200,66,.25);
-    border-radius: 12px; color: #fff; font-family: 'Poppins', sans-serif; font-size: .95rem;
-    outline: none; transition: border .2s, box-shadow .2s;
-  }
-  .input-group input:focus {
-    border-color: var(--gold2); box-shadow: 0 0 0 3px rgba(245,200,66,.15);
-  }
-  .input-group input::placeholder { color: rgba(255,255,255,.3); }
-  .btn-play {
-    width: 100%; padding: 16px;
-    background: linear-gradient(135deg, var(--orange), var(--red));
-    border: none; border-radius: 14px; color: #fff;
-    font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700;
-    cursor: pointer; transition: transform .15s, box-shadow .15s;
-    box-shadow: 0 6px 24px rgba(232,93,4,.45);
-    letter-spacing: .5px;
-  }
-  .btn-play:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,93,4,.55); }
-  .btn-play:active { transform: translateY(0); }
-
-  /* â”€â”€ Game Section â”€â”€ */
-  #gameSection { display: none; }
-
-  .player-info {
-    text-align: center; margin-bottom: 24px;
-  }
-  .player-info .name { font-size: 1.1rem; color: var(--gold); font-weight: 700; }
-  .player-info .chances-left { font-size: .85rem; color: #f5d98a; margin-top: 4px; }
-
-  /* Dice arena */
-  .dice-arena {
-    background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    border: 1px solid rgba(245,200,66,.2);
-    border-radius: 24px; padding: 36px 24px;
-    text-align: center; position: relative; overflow: hidden;
-  }
-  .dice-arena::before {
-    content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse at 50% 0%, rgba(245,200,66,.07) 0%, transparent 70%);
-  }
-
-  .dice-label { font-size: .8rem; color: #f5d98a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
-
-  .dice-row {
-    display: flex; justify-content: center; gap: clamp(12px,3vw,24px);
-    flex-wrap: wrap; margin-bottom: 28px;
-  }
-
-  .die {
-    width: clamp(60px,13vw,80px); height: clamp(60px,13vw,80px);
-    background: linear-gradient(145deg, #fffbe8, #f5e48a);
-    border-radius: 16px; position: relative;
-    box-shadow: 0 6px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.8);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: transform .1s;
-    border: 2px solid rgba(245,200,66,.6);
-  }
-  .die:hover { transform: scale(1.05); }
-  .die.rolling { animation: rollDie .6s ease-out; }
-  @keyframes rollDie {
-    0%   { transform: rotate(0deg) scale(1); }
-    25%  { transform: rotate(-15deg) scale(1.12); }
-    50%  { transform: rotate(15deg) scale(1.08); }
-    75%  { transform: rotate(-8deg) scale(1.05); }
-    100% { transform: rotate(0deg) scale(1); }
-  }
-  .die.highlight {
-    background: linear-gradient(145deg, #ff9a3c, #e85d04);
-    border-color: var(--gold);
-    box-shadow: 0 0 24px rgba(232,93,4,.7), 0 6px 20px rgba(0,0,0,.4);
-    animation: pulse 1s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%,100% { box-shadow: 0 0 24px rgba(232,93,4,.7), 0 6px 20px rgba(0,0,0,.4); }
-    50% { box-shadow: 0 0 40px rgba(232,93,4,.9), 0 6px 24px rgba(0,0,0,.5); }
-  }
-
-  /* Dots */
-  .dots { display: grid; width: 100%; height: 100%; padding: 10px; gap: 4px; }
-  .dot {
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #8b0000, #3d0000);
-    box-shadow: inset 0 1px 2px rgba(255,255,255,.2);
-  }
-  .die.highlight .dot {
-    background: radial-gradient(circle at 35% 35%, #fff8e7, #f5c842);
-  }
-  /* Dot layouts */
-  .dots-1 { grid-template-areas: ". . ." ". c ." ". . ."; }
-  .dots-2 { grid-template-areas: "a . ." ". . ." ". . b"; }
-  .dots-3 { grid-template-areas: "a . ." ". c ." ". . b"; }
-  .dots-4 { grid-template-areas: "a . b" ". . ." "c . d"; }
-  .dots-5 { grid-template-areas: "a . b" ". c ." "d . e"; }
-  .dots-6 { grid-template-areas: "a . b" "c . d" "e . f"; }
-
-  /* Btn Roll */
-  .btn-roll {
-    padding: 14px 40px;
-    background: linear-gradient(135deg, var(--gold2), var(--gold));
-    border: none; border-radius: 50px; color: var(--deep);
-    font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 800;
-    cursor: pointer; transition: transform .15s, box-shadow .15s;
-    box-shadow: 0 6px 24px rgba(245,200,66,.4);
-    letter-spacing: 1px; text-transform: uppercase;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-roll:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(245,200,66,.55); }
-  .btn-roll:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-
-  /* Result banner */
-  .result-banner {
-    margin-top: 22px; padding: 18px 20px;
-    border-radius: 16px; font-weight: 700; font-size: 1rem;
-    display: none; animation: fadeSlide .4s ease;
-  }
-  @keyframes fadeSlide { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
-  .result-banner.win {
-    background: linear-gradient(135deg, rgba(45,106,79,.4), rgba(245,200,66,.1));
-    border: 1px solid rgba(45,200,79,.4); color: #6fcf97;
-    display: block;
-  }
-  .result-banner.lose {
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-    color: #f5d98a; display: block;
-  }
-  .result-banner.qualified {
-    background: linear-gradient(135deg, rgba(245,200,66,.2), rgba(232,93,4,.15));
-    border: 1px solid rgba(245,200,66,.5); color: var(--gold);
-    display: block; text-align: center;
-  }
-
-  /* Chances indicators */
-  .chances-visual {
-    display: flex; justify-content: center; gap: 14px; margin-bottom: 22px;
-  }
-  .chance-pip {
-    width: 38px; height: 38px; border-radius: 50%;
-    border: 2px solid rgba(245,200,66,.4);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; transition: all .3s;
-  }
-  .chance-pip.active {
-    background: linear-gradient(135deg, var(--gold2), var(--gold));
-    border-color: var(--gold); box-shadow: 0 0 16px rgba(245,200,66,.45);
-  }
-  .chance-pip.used {
-    background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12);
-    filter: grayscale(1); opacity: .4;
-  }
-
-  /* Scroll of rules */
-  .scroll-rules {
-    background: linear-gradient(135deg, rgba(245,200,66,.08), rgba(232,93,4,.05));
-    border: 1px solid rgba(245,200,66,.2);
-    border-radius: 20px; padding: 24px;
-    margin-top: 28px;
-  }
-  .scroll-rules h3 { font-family: 'Yatra One', cursive; color: var(--gold); margin-bottom: 14px; font-size: 1.1rem; }
-  .rule-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: .85rem; line-height: 1.6; color: #f5d98a; opacity:.85; }
-  .rule-num { color: var(--gold); font-weight: 700; flex-shrink: 0; }
-
-  /* Confetti */
-  .confetti-piece {
-    position: fixed; width: 10px; height: 10px; border-radius: 2px;
-    animation: confettiFall 2s ease-in forwards; pointer-events: none; z-index: 999;
-  }
-  @keyframes confettiFall {
-    0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-  }
-
-  /* Decoration lamps */
-  .lamps {
-    display: flex; justify-content: center; gap: 0; margin: 8px 0 20px;
-    font-size: 1.4rem; letter-spacing: 2px;
-  }
-  .lamp { animation: lampGlow 1.5s ease-in-out infinite alternate; display: inline-block; }
-  .lamp:nth-child(2n) { animation-delay: .3s; }
-  .lamp:nth-child(3n) { animation-delay: .6s; }
-  .lamp:nth-child(4n) { animation-delay: .9s; }
-  @keyframes lampGlow {
-    from { filter: brightness(1); transform: scale(1); }
-    to   { filter: brightness(1.5) drop-shadow(0 0 6px gold); transform: scale(1.08); }
-  }
-
-  /* Footer */
-  .footer { text-align: center; margin-top: 40px; font-size: .75rem; color: rgba(245,200,66,.45); }
-
-  /* Screen overlay */
-  #screen-qualified {
-    display: none; text-align: center; padding: 30px 20px;
-  }
-  .big-trophy { font-size: 5rem; animation: tropAnim 1s ease-out; }
-  @keyframes tropAnim { from { transform: scale(0) rotate(-20deg); } to { transform: scale(1) rotate(0deg); } }
-  .qualified-title {
-    font-family: 'Yatra One', cursive;
-    font-size: clamp(1.6rem,5vw,2.4rem);
-    background: linear-gradient(135deg, var(--gold), #fff5c0);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    margin: 14px 0 8px;
-  }
-  .qualified-detail { color: #f5d98a; font-size: .95rem; line-height: 1.7; max-width: 400px; margin: 0 auto; }
-  .btn-share {
-    margin-top: 22px; padding: 12px 30px;
-    background: linear-gradient(135deg, var(--gold2), var(--gold));
-    border: none; border-radius: 50px; color: var(--deep);
-    font-family: 'Poppins', sans-serif; font-size: .9rem; font-weight: 700;
-    cursor: pointer; box-shadow: 0 6px 20px rgba(245,200,66,.35);
-  }
-
-  @media (max-width:480px) {
-    .form-card { padding: 24px 18px; }
-    .dice-arena { padding: 24px 14px; }
-    .die { width: 56px; height: 56px; border-radius: 12px; }
-  }
+.headline {
+  font-family: 'Yatra One', cursive; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.15;
+  background: linear-gradient(135deg, var(--gold), #fff5c0, var(--gold2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(245,200,66,.4));
+}
+.sub-headline { font-size: clamp(.85rem, 2.5vw, 1.05rem); color: #f5d98a; margin-top: 8px; opacity: .9; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 18px auto; max-width: 340px; }
+.divider span { flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--gold2), transparent); }
+.divider em { font-style: normal; font-size: 1.4rem; }
+.info-card {
+  background: linear-gradient(135deg, rgba(245,200,66,.13), rgba(232,93,4,.08));
+  border: 1px solid rgba(245,200,66,.25); border-radius: 20px; padding: 22px 24px;
+  margin-bottom: 28px; backdrop-filter: blur(4px); display: flex; gap: 18px; align-items: flex-start;
+}
+.info-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: 2px; }
+.info-title { font-weight: 700; font-size: 1.05rem; color: var(--gold); margin-bottom: 6px; }
+.info-text { font-size: .88rem; line-height: 1.65; color: #f5d98a; opacity:.9; }
+.chances-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.chance-badge {
+  background: rgba(245,200,66,.15); border: 1px solid rgba(245,200,66,.35);
+  border-radius: 30px; padding: 4px 14px; font-size: .8rem; color: var(--gold);
+  display: flex; align-items: center; gap: 6px;
+}
+.form-card {
+  background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(245,200,66,.2); border-radius: 24px; padding: 32px 28px; margin-bottom: 28px;
+}
+.form-title { font-family: 'Yatra One', cursive; font-size: 1.4rem; color: var(--gold); margin-bottom: 20px; text-align: center; }
+.input-group { margin-bottom: 16px; }
+.input-group label { display: block; font-size: .8rem; color: #f5d98a; margin-bottom: 6px; font-weight: 600; letter-spacing: .5px; }
+.input-group input {
+  width: 100%; padding: 13px 16px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(245,200,66,.25);
+  border-radius: 12px; color: #fff; font-family: 'Poppins', sans-serif; font-size: .95rem;
+  outline: none; transition: border .2s, box-shadow .2s;
+}
+.input-group input:focus { border-color: var(--gold2); box-shadow: 0 0 0 3px rgba(245,200,66,.15); }
+.input-group input::placeholder { color: rgba(255,255,255,.3); }
+.btn-play {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  border: none; border-radius: 14px; color: #fff;
+  font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700;
+  cursor: pointer; transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 6px 24px rgba(232,93,4,.45); letter-spacing: .5px;
+}
+.btn-play:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,93,4,.55); }
+.btn-play:active { transform: translateY(0); }
+#gameSection { display: none; }
+.player-info { text-align: center; margin-bottom: 24px; }
+.player-info .name { font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+.player-info .chances-left { font-size: .85rem; color: #f5d98a; margin-top: 4px; }
+.dice-arena {
+  background: linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border: 1px solid rgba(245,200,66,.2); border-radius: 24px; padding: 36px 24px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.dice-arena::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245,200,66,.07) 0%, transparent 70%);
+}
+.dice-label { font-size: .8rem; color: #f5d98a; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.dice-row { display: flex; justify-content: center; gap: clamp(12px,3vw,24px); flex-wrap: wrap; margin-bottom: 28px; }
+.die {
+  width: clamp(60px,13vw,80px); height: clamp(60px,13vw,80px);
+  background: linear-gradient(145deg, #fffbe8, #f5e48a); border-radius: 16px; position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.8);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: transform .1s; border: 2px solid rgba(245,200,66,.6);
+}
+.die:hover { transform: scale(1.05); }
+.die.rolling { animation: rollDie .6s ease-out; }
+@keyframes rollDie {
+  0%   { transform: rotate(0deg) scale(1); }   25% { transform: rotate(-15deg) scale(1.12); }
+  50%  { transform: rotate(15deg) scale(1.08); } 75% { transform: rotate(-8deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+.die.highlight {
+  background: linear-gradient(145deg, #ff9a3c, #e85d04); border-color: var(--gold);
+  box-shadow: 0 0 24px rgba(232,93,4,.7), 0 6px 20px rgba(0,0,0,.4);
+  animation: pulse 1s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 24px rgba(232,93,4,.7), 0 6px 20px rgba(0,0,0,.4); }
+  50%      { box-shadow: 0 0 40px rgba(232,93,4,.9), 0 6px 24px rgba(0,0,0,.5); }
+}
+.dots { display: grid; width: 100%; height: 100%; padding: 10px; gap: 4px; }
+.dot { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #8b0000, #3d0000); box-shadow: inset 0 1px 2px rgba(255,255,255,.2); }
+.die.highlight .dot { background: radial-gradient(circle at 35% 35%, #fff8e7, #f5c842); }
+.btn-roll {
+  padding: 14px 40px;
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  border: none; border-radius: 50px; color: var(--deep);
+  font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 800;
+  cursor: pointer; transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 6px 24px rgba(245,200,66,.4); letter-spacing: 1px; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-roll:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(245,200,66,.55); }
+.btn-roll:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.result-banner {
+  margin-top: 22px; padding: 18px 20px; border-radius: 16px;
+  font-weight: 700; font-size: 1rem; display: none; animation: fadeSlide .4s ease;
+}
+@keyframes fadeSlide { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+.result-banner.win  { background: linear-gradient(135deg, rgba(45,106,79,.4), rgba(245,200,66,.1)); border: 1px solid rgba(45,200,79,.4); color: #6fcf97; display: block; }
+.result-banner.lose { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); color: #f5d98a; display: block; }
+.result-banner.qualified { background: linear-gradient(135deg, rgba(245,200,66,.2), rgba(232,93,4,.15)); border: 1px solid rgba(245,200,66,.5); color: var(--gold); display: block; text-align: center; }
+.chances-visual { display: flex; justify-content: center; gap: 14px; margin-bottom: 22px; }
+.chance-pip {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 2px solid rgba(245,200,66,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; transition: all .3s;
+}
+.chance-pip.active { background: linear-gradient(135deg, var(--gold2), var(--gold)); border-color: var(--gold); box-shadow: 0 0 16px rgba(245,200,66,.45); }
+.chance-pip.used   { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); filter: grayscale(1); opacity: .4; }
+.scroll-rules {
+  background: linear-gradient(135deg, rgba(245,200,66,.08), rgba(232,93,4,.05));
+  border: 1px solid rgba(245,200,66,.2); border-radius: 20px; padding: 24px; margin-top: 28px;
+}
+.scroll-rules h3 { font-family: 'Yatra One', cursive; color: var(--gold); margin-bottom: 14px; font-size: 1.1rem; }
+.rule-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: .85rem; line-height: 1.6; color: #f5d98a; opacity:.85; }
+.rule-num { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.confetti-piece { position: fixed; width: 10px; height: 10px; border-radius: 2px; animation: confettiFall 2s ease-in forwards; pointer-events: none; z-index: 999; }
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+.lamps { display: flex; justify-content: center; gap: 0; margin: 8px 0 20px; font-size: 1.4rem; letter-spacing: 2px; }
+.lamp { animation: lampGlow 1.5s ease-in-out infinite alternate; display: inline-block; }
+.lamp:nth-child(2n) { animation-delay: .3s; } .lamp:nth-child(3n) { animation-delay: .6s; } .lamp:nth-child(4n) { animation-delay: .9s; }
+@keyframes lampGlow { from { filter: brightness(1); transform: scale(1); } to { filter: brightness(1.5) drop-shadow(0 0 6px gold); transform: scale(1.08); } }
+.footer { text-align: center; margin-top: 40px; font-size: .75rem; color: rgba(245,200,66,.45); }
+#screen-qualified { display: none; text-align: center; padding: 30px 20px; }
+.big-trophy { font-size: 5rem; animation: tropAnim 1s ease-out; }
+@keyframes tropAnim { from { transform: scale(0) rotate(-20deg); } to { transform: scale(1) rotate(0deg); } }
+.qualified-title {
+  font-family: 'Yatra One', cursive; font-size: clamp(1.6rem,5vw,2.4rem);
+  background: linear-gradient(135deg, var(--gold), #fff5c0);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 14px 0 8px;
+}
+.qualified-detail { color: #f5d98a; font-size: .95rem; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+.btn-share {
+  margin-top: 22px; padding: 12px 30px;
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  border: none; border-radius: 50px; color: var(--deep);
+  font-family: 'Poppins', sans-serif; font-size: .9rem; font-weight: 700;
+  cursor: pointer; box-shadow: 0 6px 20px rgba(245,200,66,.35);
+}
+@media (max-width:480px) {
+  .form-card { padding: 24px 18px; } .dice-arena { padding: 24px 14px; } .die { width: 56px; height: 56px; border-radius: 12px; }
+}
 </style>
 </head>
 <body>
 
-<!-- Animated background -->
 <div class="bg-wrap"></div>
-  <!-- Company Logo â€” top left -->
+
 <div class="logo-wrap">
   <div class="logo-inner">
     <img src="Untitled-1G.png" alt="Softlogic Pharmaceuticals">
     <div class="logo-shimmer"></div>
   </div>
 </div>
-<!-- Awurudu Sun â€” top right corner -->
+
 <div class="sun-wrap">
   <div class="sun-glow"></div>
-
-  <!-- Rotating rays as SVG -->
   <div class="sun-svg-wrap">
     <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="320" height="320">
       <defs>
         <radialGradient id="coreGrad" cx="42%" cy="38%" r="58%">
-          <stop offset="0%"   stop-color="#fff8d0"/>
-          <stop offset="40%"  stop-color="#f5c842"/>
-          <stop offset="75%"  stop-color="#e8a800"/>
-          <stop offset="100%" stop-color="#c97a00"/>
+          <stop offset="0%" stop-color="#fff8d0"/><stop offset="40%" stop-color="#f5c842"/>
+          <stop offset="75%" stop-color="#e8a800"/><stop offset="100%" stop-color="#c97a00"/>
         </radialGradient>
         <radialGradient id="rayGrad" cx="50%" cy="0%" r="100%">
-          <stop offset="0%"   stop-color="#f5c842"/>
-          <stop offset="100%" stop-color="#e85d04"/>
+          <stop offset="0%" stop-color="#f5c842"/><stop offset="100%" stop-color="#e85d04"/>
         </radialGradient>
       </defs>
-
-      <!-- Wavy golden rays (outer) -->
       <g transform="translate(160,160)">
-        <!-- 16 alternating rays: wide golden + narrow red -->
-        <!-- Ray 1 wide gold -->
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95"/>
-        <!-- Ray 1 narrow red -->
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(11.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(22.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(33.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(45)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(56.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(67.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(78.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(90)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(101.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(112.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(123.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(135)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(146.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(157.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(168.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(180)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(191.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(202.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(213.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(225)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(236.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(247.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(258.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(270)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(281.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(292.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(303.75)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(315)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(326.25)"/>
-
         <path d="M0,0 C-14,-72 -6,-100 0,-120 C6,-100 14,-72 0,0" fill="url(#rayGrad)" opacity="0.95" transform="rotate(337.5)"/>
         <path d="M0,0 C-5,-78 -2,-108 0,-130 C2,-108 5,-78 0,0" fill="#c1121f" opacity="0.85" transform="rotate(348.75)"/>
-
-        <!-- Sun core circle -->
         <circle cx="0" cy="0" r="72" fill="url(#coreGrad)" stroke="#c97a00" stroke-width="2"/>
-
-        <!-- Engraving detail lines on core -->
         <circle cx="0" cy="0" r="68" fill="none" stroke="rgba(180,120,0,0.3)" stroke-width="1" stroke-dasharray="4 6"/>
         <circle cx="0" cy="0" r="58" fill="none" stroke="rgba(180,120,0,0.2)" stroke-width="1"/>
       </g>
     </svg>
   </div>
-
-  <!-- Face stays still -->
   <div class="sun-face-wrap">
     <svg viewBox="0 0 120 120" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
-      <!-- Face base -->
       <circle cx="60" cy="60" r="52" fill="#f5c842" opacity="0.0"/>
-      <!-- Eyes -->
       <ellipse cx="44" cy="52" rx="7" ry="8" fill="#5c3a00"/>
       <ellipse cx="76" cy="52" rx="7" ry="8" fill="#5c3a00"/>
       <ellipse cx="44" cy="52" rx="3" ry="4" fill="#2a1800"/>
       <ellipse cx="76" cy="52" rx="3" ry="4" fill="#2a1800"/>
-      <!-- Eye shine -->
       <circle cx="46" cy="50" r="2" fill="rgba(255,255,255,0.6)"/>
       <circle cx="78" cy="50" r="2" fill="rgba(255,255,255,0.6)"/>
-      <!-- Eyebrows -->
       <path d="M36,43 Q44,39 52,43" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <path d="M68,43 Q76,39 84,43" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <!-- Nose -->
       <path d="M58,58 Q56,68 52,72 Q60,75 68,72 Q64,68 62,58" fill="rgba(180,100,0,0.35)" stroke="none"/>
-      <!-- Smile -->
       <path d="M44,82 Q60,94 76,82" stroke="#5c3a00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <!-- Cheek blush -->
       <ellipse cx="34" cy="72" rx="9" ry="6" fill="rgba(232,93,4,0.18)"/>
       <ellipse cx="86" cy="72" rx="9" ry="6" fill="rgba(232,93,4,0.18)"/>
     </svg>
   </div>
 </div>
 
-<!-- Floating petals -->
+<!-- ✅ FIXED: Supabase loaded and initialized correctly — no broken function -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL = "https://xeictkgqnfhqgwzdlbfw.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlaWN0a2dxbmZocWd3emRsYmZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NjAxNDEsImV4cCI6MjA5MDQzNjE0MX0.CSD-HhjDoJCadOAh38Bpx3ODS0AZ-yPdPCm_dh1imBE";
+  const SUPABASE_URL = "https://xeictkgqnfhqgwzdlbfw.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlaWN0a2dxbmZocWd3emRsYmZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NjAxNDEsImV4cCI6MjA5MDQzNjE0MX0.CSD-HhjDoJCadOAh38Bpx3ODS0AZ-yPdPCm_dh1imBE";
 
-const { createClient } = supabase;
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
-async function testConnection() {    const { data, error } = await supabaseClient
-      .from('players')
-      .select('*')
-      .limit(1);
-    if (error) {
-      console.error('âŒ Supabase connection error:', error.message);
-    } else {
-      console.log('âœ… Supabase connected successfully!', data);
-    }
-  
+  // ✅ FIXED: supabase.createClient (not destructured)
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  // ✅ FIXED: testConnection now has proper closing brace
+  async function testConnection() {
+    const { data, error } = await supabaseClient.from('players').select('*').limit(1);
+    if (error) console.error('❌ Supabase error:', error.message);
+    else console.log('✅ Supabase connected!', data);
+  }
+  testConnection();
 </script>
 
 <script>
-const petalEmojis = ['ðŸŒ¸','ðŸŒº','ðŸŒ¼','âœ¿','ðŸµï¸'];
-for(let i=0;i<18;i++){
-  const p=document.createElement('div');
-  p.className='petal';
-  p.textContent=petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
-  p.style.left=Math.random()*100+'vw';
-  p.style.animationDuration=(6+Math.random()*10)+'s';
-  p.style.animationDelay=(-Math.random()*12)+'s';
-  p.style.fontSize=(.9+Math.random()*.8)+'rem';
-  document.body.appendChild(p);
-}
+  const petalEmojis = ['🌸','🌺','🌼','✿','🏵️'];
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    p.textContent=petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+    p.style.left=Math.random()*100+'vw';
+    p.style.animationDuration=(6+Math.random()*10)+'s';
+    p.style.animationDelay=(-Math.random()*12)+'s';
+    p.style.fontSize=(.9+Math.random()*.8)+'rem';
+    document.body.appendChild(p);
+  }
 </script>
 
 <div class="main">
-
-  <!-- Header -->
   <div class="header">
-    <div class="brand-tag">ðŸ¥ Softlogic Pharmacetuicals</div>
-    <div class="headline">à¶…à·€à·”à¶»à·”à¶¯à·” à¶šà·à¶§ à·ƒà·™à¶½à·Šà¶½à¶¸ </div>
-    <div class="sub-headline"> Awurudu Keta Sellama Â· New Year Lucky Dice</div>
-    <div class="sub-headline"> Keta Geseema (Traditional Sinhala New Year Game)</div>
-<div> <p style="font-size: 13px;">Keta Geseema à¶ºà¶±à·” à·ƒà·’à¶±à·Šà·„à¶½ à¶…à¶½à·”à¶­à·Š à¶…à·€à·”à¶»à·”à¶¯à·” à·ƒà¶¸à·Šà¶´à·Šâ€à¶»à¶¯à·à¶ºà·’à¶š à¶šà·Šâ€à¶»à·“à¶©à·à·€à¶šà·Š à·€à¶± à¶…à¶­à¶», à¶‘à¶º à¶œà·™à·€à¶½à·Šà·€à¶½ à·„à· Keta Pola à¶½à·™à·ƒ à·„à·à¶³à·’à¶±à·Šà·€à·™à¶± à·€à·’à·à·šà·‚ à·ƒà·Šà¶®à·à¶±à·€à¶½ à¶šà·Šâ€à¶»à·“à¶©à· à¶šà¶»à¶±à·” à¶½à·à¶¶à·š. à¶¸à·™à¶¸ à¶šà·Šâ€à¶»à·“à¶©à·à·€ à·ƒà¶³à·„à· à¶¸à·“ à¶œà·œà¶±à·”à·€à¶½ à¶šà·œà¶¸à·Šà¶¶à¶ºà·™à¶±à·Š à·ƒà·‘à¶¯à·–, à¶¸à·”à·„à·”à¶«à·” 6à¶šà·Š à¶‡à¶­à·’ à¶šà·à¶§à¶ºà¶šà·Š à¶·à·à·€à·’à¶­à· à¶šà¶»à¶± à¶…à¶­à¶», à¶‘à·„à·’ 1â€“6 à·„à· 3, 6, 9, 12, 15, 18 à¶½à·™à·ƒ à¶…à¶œà¶ºà¶±à·Š à·ƒà¶½à¶šà·”à¶«à·” à¶šà¶» à¶‡à¶­. à¶šà·Šâ€à¶»à·“à¶©à¶šà¶ºà¶±à·Š à¶‘à¶šà·’à¶±à·™à¶šà·à¶§ à¶´à·€à¶»à· à¶šà·à¶§à¶º à·€à¶šà·Šâ€à¶» à¶´à·”à·€à¶»à·”à·€à¶šà·Š à¶¸à¶­à¶§ à·„à·™à·…à¶± à¶…à¶­à¶», à·€à·à¶©à·’à¶¸ à¶…à¶œà¶º à¶½à¶¶à·à¶œà¶±à·Šà¶±à· à¶´à·”à¶¯à·Šà¶œà¶½à¶ºà· à¶¢à¶ºà¶œà·Šâ€à¶»à·à·„à¶šà¶ºà· à·€à·š.
-à¶šà·’à·„à·’à¶´ à¶¯à·™à¶±à·™à¶šà·”à¶§ à¶‘à¶šà¶¸ à·€à·à¶©à·’à¶¸ à¶…à¶œà¶º à¶½à·à¶¶à·š à¶±à¶¸à·Š, à¶¢à¶ºà¶œà·Šâ€à¶»à·à·„à¶šà¶ºà·™à¶šà·Š à¶­à·à¶»à· à¶œà·à¶±à·“à¶¸à¶§ à¶±à·à·€à¶­ à¶šà·Šâ€à¶»à·“à¶©à·à·€ à¶šà·Šâ€à¶»à·“à¶©à· à¶šà¶»à¶±à·” à¶½à·à¶¶à·š. à¶¸à·™à¶¸ à¶šà·Šâ€à¶»à·“à¶©à·à·€ à¶¶à·œà·„à· à·€à·’à¶§ à¶¸à·”à¶¯à¶½à·Š à·„à· à¶·à·à¶«à·Šà¶© à¶¸à¶­ à¶šà·Šâ€à¶»à·“à¶©à· à¶šà¶»à¶± à¶…à¶­à¶», à¶‘à¶ºà¶§ à¶´à·à¶­à·’à¶´à·à¶­à·Šà¶­à·™à¶±à·Š à¶¶à¶½à¶± à¶…à¶ºà¶§à¶¯ à¶´à·à¶»à·à¶«à·’ à·€à·à¶ºà·™à¶±à·Š à¶”à¶§à·Šà¶§à·” à¶­à·à¶¶à·“à¶¸à·š à¶…à·€à·ƒà·Šà¶®à·à·€à¶šà·Š à¶‡à¶­. à¶”à·€à·”à¶±à·Šà¶§ à¶´à·Šâ€à¶»à¶­à·’à¶µà¶½à¶º à¶‹à·ƒà·ƒà·Š à¶…à¶œà¶ºà¶šà·Š (12, 15, 18) à·€à·šà¶¯ à·„à· à¶´à·„à·… à¶…à¶œà¶ºà¶šà·Š (3, 6, 9) à·€à·šà¶¯ à¶ºà¶±à·Šà¶± à¶´à·’à·…à·’à¶¶à¶³à·€ à¶”à¶§à·Šà¶§à·” à¶­à·à¶¶à·’à¶º à·„à·à¶š<p/></div>
-    <div class="lamps">ðŸª”ðŸŽŠðŸŒ¸ðŸŽ‰ðŸª”ðŸŽŠðŸŒ¸ðŸŽ‰ðŸª”</div>
-    <div class="divider"><span></span><em>ðŸŽ²</em><span></span></div>
+    <div class="brand-tag">🏥 Softlogic Pharmaceuticals</div>
+    <div class="headline">අවුරුදු කැට සෙල්ලම</div>
+    <div class="sub-headline">Awurudu Keta Sellama · New Year Lucky Dice</div>
+    <div class="sub-headline">Keta Geseema (Traditional Sinhala New Year Game)</div>
+    <div><p style="font-size: 13px;">Keta Geseema යනු සින්හල අලුත් අවුරුදු සම්ප්‍රදායික ක්‍රීඩාවක් වන අතර, එය ගෙවල්වල හෝ Keta Pola ලෙස හැඳින්වෙන විශේෂ ස්ථානවල ක්‍රීඩා කරනු ලැබේ.</p></div>
+    <div class="lamps">🪔🎊🌸🎉🪔🎊🌸🎉🪔</div>
+    <div class="divider"><span></span><em>🎲</em><span></span></div>
   </div>
 
-  <!-- Info Card -->
   <div class="info-card">
-    <div class="info-icon">ðŸŽ¯</div>
+    <div class="info-icon">🎯</div>
     <div>
-      <div class="info-title">à¶¢à¶ºà¶œà·Šâ€à¶»à·à·„à¶šà¶ºà·’à¶±à·Š 5 à¶¯à·™à¶±à·™à¶šà·” à¶­à·à¶»à·à¶œà¶±à·” à¶½à·à¶¶à·š Â· How to Win</div>
+      <div class="info-title">ජයග්‍රාහකයින් 5 දෙනෙකු තෝරාගනු ලැබේ · How to Win</div>
       <div class="info-text">
-        Roll the dice and try your luck this Avurudu! If all three dice show the <strong style="color:var(--gold)">same number</strong> â€” you earn a lucky entry into our grand draw. Two winners will be selected from all qualified entries after the campaign.
+        Roll the dice and try your luck this Avurudu! If all three dice show the <strong style="color:var(--gold)">same number</strong> — you earn a lucky entry into our grand draw.
       </div>
       <div class="chances-row">
-        <div class="chance-badge">ðŸŽ² 3 Chances Per Player</div>
-        <div class="chance-badge">ðŸ† 5 Grand Winners to CareSens N Eco Glucometer</div>
-        <div class="chance-badge">ðŸ“… Final Draw After Game Campaign</div>
+        <div class="chance-badge">🎲 3 Chances Per Player</div>
+        <div class="chance-badge">🏆 5 Grand Winners — CareSens N Eco Glucometer</div>
+        <div class="chance-badge">📅 Final Draw After Game Campaign</div>
       </div>
     </div>
   </div>
 
-  <!-- Entry Form -->
   <div class="form-card" id="formCard">
-    <div class="form-title">ðŸŒ¸ Enter to Play</div>
+    <div class="form-title">🌸 Enter to Play</div>
     <div class="input-group">
       <label>Your Full Name</label>
       <input type="text" id="playerName" placeholder="e.g. Saman Kumara" autocomplete="off">
@@ -682,219 +410,160 @@ for(let i=0;i<18;i++){
       <label>Mobile Number</label>
       <input type="tel" id="playerPhone" placeholder="07X XXX XXXX" maxlength="10" inputmode="numeric">
     </div>
-    <button class="btn-play" onclick="startGame()">ðŸŽ² Start Playing!</button>
+    <button class="btn-play" onclick="startGame()">🎲 Start Playing!</button>
   </div>
 
-  <!-- Game Section -->
   <div id="gameSection">
-
-    <!-- Player info -->
     <div class="player-info">
       <div class="name" id="playerDisplay"></div>
       <div class="chances-left" id="chancesDisplay"></div>
     </div>
-
-    <!-- Chances visual pips -->
     <div class="chances-visual" id="chancesPips"></div>
-
-    <!-- Dice Arena -->
     <div class="dice-arena">
-      <div class="dice-label">ðŸŽ² Roll the Dice â€” Match All Three to Qualify!</div>
-
+      <div class="dice-label">🎲 Roll the Dice — Match All Three to Qualify!</div>
       <div class="dice-row" id="diceRow">
         <div class="die" id="die0"></div>
         <div class="die" id="die1"></div>
         <div class="die" id="die2"></div>
       </div>
-
-      <button class="btn-roll" id="rollBtn" onclick="rollDice()">
-        ðŸŽ² Roll Dice
-      </button>
-
+      <button class="btn-roll" id="rollBtn" onclick="rollDice()">🎲 Roll Dice</button>
       <div class="result-banner" id="resultBanner"></div>
     </div>
-
-    <!-- Qualified Screen -->
     <div id="screen-qualified">
-      <div class="big-trophy">ðŸ†</div>
-      <div class="qualified-title">à¶”à¶¶ à¶¢à¶ºà¶œà·Šâ€à¶»à·à·„à¶šà¶ºà·™à¶šà·” à·€à·’à¶º à·„à·à¶šà·’à¶º!</div>
+      <div class="big-trophy">🏆</div>
+      <div class="qualified-title">ඔබ ජයග්‍රාහකයෙකු විය හැකිය!</div>
       <div class="qualified-detail">
         Congratulations! You've matched all three dice and earned a <strong style="color:var(--gold)">Lucky Entry</strong> into the Softlogic Pharma Awurudu Grand Draw.<br><br>
-        Our team will contact you if you are selected as one of the <strong style="color:var(--gold)">2 Grand Winners</strong>. Good luck! ðŸŒ¸
+        Our team will contact you if you are selected as one of the <strong style="color:var(--gold)">5 Grand Winners</strong>. Good luck! 🌸
       </div>
-      <button class="btn-share" onclick="shareResult()">ðŸŒ¸ Share the Fun!</button>
+      <button class="btn-share" onclick="shareResult()">🌸 Share the Fun!</button>
     </div>
-
-    <!-- Rules Scroll -->
     <div class="scroll-rules">
-      <h3>ðŸ“œ Game Rules Â· à¶±à·“à¶­à·’ à¶»à·“à¶­à·’</h3>
+      <h3>📜 Game Rules · නීති රීති</h3>
       <div class="rule-item"><div class="rule-num">1.</div><div>Each player gets <strong>3 chances</strong> to roll the dice per entry.</div></div>
-      <div class="rule-item"><div class="rule-num">2.</div><div>Roll all <strong>3 dice simultaneously</strong>. If all three show the same number, you earn a lucky qualified entry.</div></div>
+      <div class="rule-item"><div class="rule-num">2.</div><div>If all three dice show the same number, you earn a qualified entry.</div></div>
       <div class="rule-item"><div class="rule-num">3.</div><div>One entry per mobile number. Duplicate entries will be removed.</div></div>
-      <div class="rule-item"><div class="rule-num">4.</div><div><strong>2 final winners</strong> will be randomly selected from all qualified entries after campaign close.</div></div>
-      <div class="rule-item"><div class="rule-num">5.</div><div>Winners will be contacted by phone. If unreachable within 3 days, a backup winner will be selected.</div></div>
+      <div class="rule-item"><div class="rule-num">4.</div><div><strong>5 final winners</strong> will be randomly selected from all qualified entries after campaign close.</div></div>
+      <div class="rule-item"><div class="rule-num">5.</div><div>Winners will be contacted by phone within 3 days.</div></div>
       <div class="rule-item"><div class="rule-num">6.</div><div>Softlogic Pharmaceuticals's decision is final.</div></div>
     </div>
-
   </div>
 
-  <div class="footer">
-    Â© 2026 Softlogic Pharmaceuticals Â· Awurudu Giveaway Campaign Â· à·ƒà·”à¶· à¶…à¶½à·”à¶­à·Š à¶…à·€à·”à¶»à·”à¶¯à·”! ðŸŒ¸
-  </div>
-
+  <div class="footer">© 2026 Softlogic Pharmaceuticals · Awurudu Giveaway Campaign · සුභ අලුත් අවුරුදු! 🌸</div>
 </div>
-  
+
 <script>
-async function savePlayer(result) {
-  const { data, error } = await supabaseClient
-    .from('players')
-    .insert([
-      { Name: playerName, Phone: playerPhone, Qualified: result ,played_at: new Date().toISOString() }
-    ]);
+  // ✅ FIXED: savePlayer uses supabaseClient correctly
+  async function savePlayer(result) {
+    const { data, error } = await supabaseClient
+      .from('players')
+      .insert([{
+        Name: playerName,
+        Phone: playerPhone,
+        Qualified: result,
+        played_at: new Date().toISOString()
+      }]);
 
-  if (error) {
-    console.error('Supabase save error:', error);
-    alert('Save failed: ' + error.message);
-  } else {
-    console.log('Saved successfully:', data);
-    alert('Saved successfully');
-  }
-}
-
-// â”€â”€ State â”€â”€
-let playerName = '';
-let playerPhone = '';
-let chancesLeft = 3;
-let totalChances = 3;
-let qualified = false;
-
-// â”€â”€ Start Game â”€â”€
-function startGame() {
-  const name = document.getElementById('playerName').value.trim();
-  const phone = document.getElementById('playerPhone').value.trim();
-
-  if (!name) {
-    alert('Please enter your name! ðŸŒ¸');
-    return;
+    if (error) {
+      console.error('❌ Supabase save error:', error.message);
+    } else {
+      console.log('✅ Player saved:', playerName, '| Qualified:', result);
+    }
   }
 
-  if (!/^0[0-9]{9}$/.test(phone)) {
-    alert('Please enter a valid 10-digit mobile number starting with 0.');
-    return;
+  // State
+  let playerName = '';
+  let playerPhone = '';
+  let chancesLeft = 3;
+  let totalChances = 3;
+  let qualified = false;
+
+  function startGame() {
+    const name = document.getElementById('playerName').value.trim();
+    const phone = document.getElementById('playerPhone').value.trim();
+    if (!name) { alert('Please enter your name! 🌸'); return; }
+    if (!/^0[0-9]{9}$/.test(phone)) { alert('Please enter a valid 10-digit mobile number starting with 0.'); return; }
+    playerName = name;
+    playerPhone = phone;
+    chancesLeft = 3;
+    qualified = false;
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('gameSection').style.display = 'block';
+    document.getElementById('playerDisplay').textContent = '👋 Welcome, ' + playerName + '!';
+    updateChancesDisplay();
+    renderPips();
+    initDice();
+    spawnConfetti(8);
   }
 
-  playerName = name;
-  playerPhone = phone;
-  chancesLeft = 3;
-
-  document.getElementById('formCard').style.display = 'none';
-  document.getElementById('gameSection').style.display = 'block';
-  document.getElementById('playerDisplay').textContent = 'ðŸ‘‹ Welcome, ' + playerName + '!';
-
-  updateChancesDisplay();
-  renderPips();
-  initDice();
-  spawnConfetti(8);
-}
-
-function updateChancesDisplay() {
-  document.getElementById('chancesDisplay').textContent =
-    chancesLeft > 0
-      ? `ðŸŽ² ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} remaining`
-      : 'ðŸŽ² No chances left';
-}
-
-function renderPips() {
-  const wrap = document.getElementById('chancesPips');
-  wrap.innerHTML = '';
-  for (let i = 0; i < totalChances; i++) {
-    const pip = document.createElement('div');
-    pip.className = 'chance-pip ' + (i < chancesLeft ? 'active' : 'used');
-    pip.textContent = i < chancesLeft ? 'ðŸŽ²' : 'âœ—';
-    wrap.appendChild(pip);
+  function updateChancesDisplay() {
+    document.getElementById('chancesDisplay').textContent =
+      chancesLeft > 0 ? `🎲 ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} remaining` : '🎲 No chances left';
   }
-}
 
+  function renderPips() {
+    const wrap = document.getElementById('chancesPips');
+    wrap.innerHTML = '';
+    for (let i = 0; i < totalChances; i++) {
+      const pip = document.createElement('div');
+      pip.className = 'chance-pip ' + (i < chancesLeft ? 'active' : 'used');
+      pip.textContent = i < chancesLeft ? '🎲' : '✗';
+      wrap.appendChild(pip);
+    }
+  }
 
-  // â”€â”€ Dice â”€â”€
   const dotConfigs = {
-    1: [[1,1]],
-    2: [[0,0],[2,2]],
-    3: [[0,0],[1,1],[2,2]],
-    4: [[0,0],[0,2],[2,0],[2,2]],
-    5: [[0,0],[0,2],[1,1],[2,0],[2,2]],
-    6: [[0,0],[0,2],[1,0],[1,2],[2,0],[2,2]]
+    1:[[1,1]], 2:[[0,0],[2,2]], 3:[[0,0],[1,1],[2,2]],
+    4:[[0,0],[0,2],[2,0],[2,2]], 5:[[0,0],[0,2],[1,1],[2,0],[2,2]],
+    6:[[0,0],[0,2],[1,0],[1,2],[2,0],[2,2]]
   };
 
   function renderDie(el, val, highlight) {
     const dotPositions = dotConfigs[val];
-    let grid = '';
     const positions = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
     const cells = positions.map(([r,c]) => {
-      const hasDot = dotPositions.some(([dr,dc])=>dr===r&&dc===c);
-      return hasDot ? `<div class="dot"></div>` : `<div></div>`;
+      return dotPositions.some(([dr,dc])=>dr===r&&dc===c) ? `<div class="dot"></div>` : `<div></div>`;
     }).join('');
     el.innerHTML = `<div class="dots" style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);width:100%;height:100%;padding:8px;gap:3px;">${cells}</div>`;
     el.classList.toggle('highlight', highlight);
   }
 
   function initDice() {
-    for (let i = 0; i < 3; i++) {
-      renderDie(document.getElementById('die' + i), Math.ceil(Math.random() * 6), false);
-    }
+    for (let i = 0; i < 3; i++) renderDie(document.getElementById('die'+i), Math.ceil(Math.random()*6), false);
   }
 
-  // â”€â”€ Roll â”€â”€
   let rolling = false;
   function rollDice() {
     if (rolling || chancesLeft <= 0 || qualified) return;
     rolling = true;
-
-    const btn = document.getElementById('rollBtn');
-    btn.disabled = true;
+    document.getElementById('rollBtn').disabled = true;
     document.getElementById('resultBanner').style.display = 'none';
-
-    // Animate dice
     const dice = [0,1,2].map(i => document.getElementById('die'+i));
     dice.forEach(d => { d.classList.remove('rolling'); void d.offsetWidth; d.classList.add('rolling'); });
-
-    // Random roll animation
     let ticks = 0;
     const interval = setInterval(() => {
       dice.forEach(d => renderDie(d, Math.ceil(Math.random()*6), false));
-      ticks++;
-      if (ticks > 8) { clearInterval(interval); finalRoll(); }
+      if (++ticks > 8) { clearInterval(interval); finalRoll(); }
     }, 80);
   }
 
   function finalRoll() {
-    const vals = [
-      Math.ceil(Math.random()*6),
-      Math.ceil(Math.random()*6),
-      Math.ceil(Math.random()*6)
-    ];
-
-    // Small chance to win: ~15% base, increases with fewer chances
-    const winChance = 0.015;
-    const forceWin = Math.random() < winChance;
-    if (forceWin) { vals[1] = vals[0]; vals[2] = vals[0]; }
-
-    const isMatch = vals[0] === vals[1] && vals[1] === vals[2];
-    const highlight = isMatch;
-
+    const vals = [Math.ceil(Math.random()*6), Math.ceil(Math.random()*6), Math.ceil(Math.random()*6)];
+    if (Math.random() < 0.015) { vals[1] = vals[0]; vals[2] = vals[0]; }
+    const isMatch = vals[0]===vals[1] && vals[1]===vals[2];
     const dice = [0,1,2].map(i => document.getElementById('die'+i));
-    dice.forEach((d,i) => { d.classList.remove('rolling'); renderDie(d, vals[i], highlight); });
+    dice.forEach((d,i) => { d.classList.remove('rolling'); renderDie(d, vals[i], isMatch); });
 
     chancesLeft--;
     updateChancesDisplay();
     renderPips();
 
     const banner = document.getElementById('resultBanner');
-
-    if (isMatch) { savePlayer(true);
+    if (isMatch) {
       qualified = true;
+      savePlayer(true);
       banner.className = 'result-banner qualified';
-      banner.innerHTML = 'ðŸ† All three match! <strong>You qualify for the Lucky Draw!</strong>';
+      banner.innerHTML = '🏆 All three match! <strong>You qualify for the Lucky Draw!</strong>';
       banner.style.display = 'block';
       spawnConfetti(50);
       setTimeout(() => {
@@ -903,53 +572,37 @@ function renderPips() {
         spawnConfetti(60);
       }, 1800);
       document.getElementById('rollBtn').disabled = true;
-    } else if (chancesLeft === 0) { savePlayer(false);
+    } else if (chancesLeft === 0) {
+      savePlayer(false);
       banner.className = 'result-banner lose';
-      banner.innerHTML = 'ðŸ˜Š Better luck next time! Thank you for playing.';
+      banner.innerHTML = '😊 Better luck next time! Thank you for playing.';
       banner.style.display = 'block';
       document.getElementById('rollBtn').disabled = true;
     } else {
       banner.className = 'result-banner lose';
-      banner.innerHTML = `ðŸŽ² Not a match! Roll again â€” ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} left!`;
+      banner.innerHTML = `🎲 Not a match! Roll again — ${chancesLeft} chance${chancesLeft > 1 ? 's' : ''} left!`;
       banner.style.display = 'block';
       document.getElementById('rollBtn').disabled = false;
     }
-
     rolling = false;
   }
 
-  // â”€â”€ Confetti â”€â”€
   function spawnConfetti(count) {
     const colors = ['#f5c842','#e85d04','#c1121f','#2d6a4f','#fff','#ff9a3c','#6fcf97'];
     for (let i = 0; i < count; i++) {
       const c = document.createElement('div');
       c.className = 'confetti-piece';
-      c.style.cssText = `
-        left:${Math.random()*100}vw;
-        top: -10px;
-        background:${colors[Math.floor(Math.random()*colors.length)]};
-        width:${6+Math.random()*8}px;
-        height:${6+Math.random()*8}px;
-        border-radius:${Math.random()>.5?'50%':'2px'};
-        animation-delay:${Math.random()*.8}s;
-        animation-duration:${1.5+Math.random()*1.5}s;
-      `;
+      c.style.cssText = `left:${Math.random()*100}vw;top:-10px;background:${colors[Math.floor(Math.random()*colors.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-delay:${Math.random()*.8}s;animation-duration:${1.5+Math.random()*1.5}s;`;
       document.body.appendChild(c);
       setTimeout(() => c.remove(), 3000);
     }
   }
 
-  // â”€â”€ Share â”€â”€
   function shareResult() {
-    const text = `ðŸŽ² I just entered the Softlogic Pharma Awurudu Keta Sellama lucky draw! Play now and stand a chance to win! ðŸŒ¸ðŸ†`;
-    if (navigator.share) {
-      navigator.share({ title: 'Softlogic Pharma Awurudu Giveaway', text });
-    } else {
-      navigator.clipboard?.writeText(text);
-      alert('Copied to clipboard! Share it with your friends ðŸŒ¸');
-    }
+    const text = `🎲 I just entered the Softlogic Pharma Awurudu Keta Sellama lucky draw! Play now and stand a chance to win! 🌸🏆`;
+    if (navigator.share) navigator.share({ title: 'Softlogic Pharma Awurudu Giveaway', text });
+    else { navigator.clipboard?.writeText(text); alert('Copied to clipboard! Share it with your friends 🌸'); }
   }
-  
 </script>
 
 </body>
