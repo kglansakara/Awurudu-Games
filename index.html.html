@@ -51,6 +51,129 @@
     0%   { transform: translateY(-60px) rotate(0deg) translateX(0); opacity:.8; }
     100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity:0; }
   }
+  /* ══════════════════════════════════════
+   SUN ILLUSTRATION — bottom-left corner
+══════════════════════════════════════ */
+.sun-wrap {
+  position: fixed;
+  bottom: -80px;
+  left: -80px;
+  width: 340px;
+  height: 340px;
+  z-index: 2;
+  pointer-events: none;
+}
+.sun-glow {
+  position: absolute;
+  inset: -60px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(245,200,66,0.22) 0%,
+    rgba(232,93,4,0.10) 40%,
+    transparent 70%);
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {
+  from { transform: scale(1);    opacity: 0.7; }
+  to   { transform: scale(1.15); opacity: 1;   }
+}
+.sun-rays {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: rotateSun 18s linear infinite;
+}
+@keyframes rotateSun {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+.sun-rays::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,   rgba(245,200,66,0.55) 6deg,
+    transparent 12deg,  rgba(245,200,66,0.55) 18deg,
+    transparent 24deg,  rgba(245,200,66,0.55) 30deg,
+    transparent 36deg,  rgba(245,200,66,0.55) 42deg,
+    transparent 48deg,  rgba(245,200,66,0.55) 54deg,
+    transparent 60deg,  rgba(245,200,66,0.55) 66deg,
+    transparent 72deg,  rgba(245,200,66,0.55) 78deg,
+    transparent 84deg,  rgba(245,200,66,0.55) 90deg,
+    transparent 96deg,  rgba(245,200,66,0.55) 102deg,
+    transparent 108deg, rgba(245,200,66,0.55) 114deg,
+    transparent 120deg, rgba(245,200,66,0.55) 126deg,
+    transparent 132deg, rgba(245,200,66,0.55) 138deg,
+    transparent 144deg, rgba(245,200,66,0.55) 150deg,
+    transparent 156deg, rgba(245,200,66,0.55) 162deg,
+    transparent 168deg, rgba(245,200,66,0.55) 174deg,
+    transparent 180deg, rgba(245,200,66,0.55) 186deg,
+    transparent 192deg, rgba(245,200,66,0.55) 198deg,
+    transparent 204deg, rgba(245,200,66,0.55) 210deg,
+    transparent 216deg, rgba(245,200,66,0.55) 222deg,
+    transparent 228deg, rgba(245,200,66,0.55) 234deg,
+    transparent 240deg, rgba(245,200,66,0.55) 246deg,
+    transparent 252deg, rgba(245,200,66,0.55) 258deg,
+    transparent 264deg, rgba(245,200,66,0.55) 270deg,
+    transparent 276deg, rgba(245,200,66,0.55) 282deg,
+    transparent 288deg, rgba(245,200,66,0.55) 294deg,
+    transparent 300deg, rgba(245,200,66,0.55) 306deg,
+    transparent 312deg, rgba(245,200,66,0.55) 318deg,
+    transparent 324deg, rgba(245,200,66,0.55) 330deg,
+    transparent 336deg, rgba(245,200,66,0.55) 342deg,
+    transparent 348deg, rgba(245,200,66,0.55) 354deg,
+    transparent 360deg
+  );
+  mask: radial-gradient(circle, transparent 38%, black 40%, black 100%);
+  -webkit-mask: radial-gradient(circle, transparent 38%, black 40%, black 100%);
+}
+.sun-core {
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%,
+    #fff8d0 0%,
+    #f5c842 35%,
+    #e8a800 65%,
+    #c97a00 100%);
+  box-shadow:
+    0 0 40px rgba(245,200,66,0.8),
+    0 0 80px rgba(232,93,4,0.4),
+    0 0 120px rgba(232,93,4,0.2);
+  animation: coreBreath 3s ease-in-out infinite alternate;
+}
+@keyframes coreBreath {
+  from { box-shadow: 0 0 40px rgba(245,200,66,0.8), 0 0 80px rgba(232,93,4,0.4); }
+  to   { box-shadow: 0 0 60px rgba(245,200,66,1.0), 0 0 120px rgba(232,93,4,0.6); }
+}
+.sun-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.2rem;
+  animation: faceFloat 4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+@keyframes faceFloat {
+  from { transform: translateY(0px) scale(1);    }
+  to   { transform: translateY(-6px) scale(1.04); }
+}
+/* inner slow counter-rotating ring for depth */
+.sun-inner-ring {
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  border: 2px dashed rgba(245,200,66,0.3);
+  animation: rotateSunReverse 26s linear infinite;
+}
+@keyframes rotateSunReverse {
+  from { transform: rotate(0deg);    }
+  to   { transform: rotate(-360deg); }
+}
 
   /* ── Main wrap ── */
   .main {
@@ -341,6 +464,14 @@
 
 <!-- Animated background -->
 <div class="bg-wrap"></div>
+  <!-- Awurudu Sun — bottom left corner -->
+<div class="sun-wrap">
+  <div class="sun-glow"></div>
+  <div class="sun-rays"></div>
+  <div class="sun-inner-ring"></div>
+  <div class="sun-core"></div>
+  <div class="sun-face">☀️</div>
+</div>
 
 <!-- Floating petals -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
