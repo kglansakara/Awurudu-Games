@@ -348,8 +348,10 @@ body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(-
   const SUPABASE_URL = "https://xeictkgqnfhqgwzdlbfw.supabase.co";
   const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhlaWN0a2dxbmZocWd3emRsYmZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NjAxNDEsImV4cCI6MjA5MDQzNjE0MX0.CSD-HhjDoJCadOAh38Bpx3ODS0AZ-yPdPCm_dh1imBE";
 
-  // ✅ FIXED: supabase.createClient (not destructured)
-  const supabaseClient = window.supabase.createClient(...)(SUPABASE_URL, SUPABASE_KEY);
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  console.log("Supabase loaded:", window.supabase);
+  console.log("Supabase client:", supabaseClient);
 
   // ✅ FIXED: testConnection now has proper closing brace
   async function testConnection() {
