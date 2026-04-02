@@ -67,10 +67,12 @@ body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(-
   animation: bgPulse 6s ease-in-out infinite alternate;
 }
 @keyframes bgPulse { from { opacity:.7 } to { opacity:1 } }
-.petal { position: fixed; font-size: 1.6rem; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity:.7; }
-@keyframes fall {
-  0%   { transform: translateY(-60px) rotate(0deg) translateX(0); opacity:.8; }
-  100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity:0; }
+.treat { position: fixed; animation: treatFall linear infinite; pointer-events: none; z-index: 1; opacity: 0.85; }
+@keyframes treatFall {
+  0%   { transform: translateY(-80px) rotate(0deg) translateX(0px);   opacity: 0.9; }
+  50%  { transform: translateY(50vh)  rotate(180deg) translateX(20px); opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-10px); opacity: 0; }
+}
 }
 .sun-wrap { position: fixed; top: -100px; right: -100px; width: 320px; height: 320px; z-index: 2; pointer-events: none; }
 .sun-glow {
@@ -363,17 +365,26 @@ body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(-
 </script>
 
 <script>
-  const petalEmojis = ['🌸','🌺','🌼','✿','🏵️'];
-  for(let i=0;i<18;i++){
-    const p=document.createElement('div');
-    p.className='petal';
-    p.textContent=petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
-    p.style.left=Math.random()*100+'vw';
-    p.style.animationDuration=(6+Math.random()*10)+'s';
-    p.style.animationDelay=(-Math.random()*12)+'s';
-    p.style.fontSize=(.9+Math.random()*.8)+'rem';
-    document.body.appendChild(p);
-  }
+// SVG treats: Kewum, Kokis, Asmi
+const treatSVGs = [
+  // Kewum (diamond-shaped sweet)
+  `<svg width="28" height="36" viewBox="0 0 28 36" xmlns="http://www.w3.org/2000/svg"><ellipse cx="14" cy="20" rx="11" ry="14" fill="#c97a00"/><ellipse cx="14" cy="19" rx="10" ry="13" fill="#e8a800"/><ellipse cx="14" cy="18" rx="9" ry="12" fill="#f5c842"/><ellipse cx="14" cy="16" rx="5" ry="3" fill="rgba(255,255,200,0.35)"/><rect x="12" y="4" width="4" height="8" rx="2" fill="#8b4513"/><ellipse cx="14" cy="4" rx="4" ry="2.5" fill="#a0522d"/></svg>`,
+  // Kokis (flower/snowflake crispy)
+  `<svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><g transform="translate(17,17)"><ellipse rx="6" ry="13" fill="#e8a800" opacity="0.9"/><ellipse rx="6" ry="13" fill="#f5c842" transform="rotate(45)"/><ellipse rx="6" ry="13" fill="#e8a800" opacity="0.9" transform="rotate(90)"/><ellipse rx="6" ry="13" fill="#f5c842" transform="rotate(135)"/><circle r="6" fill="#c97a00"/><circle r="4" fill="#f5c842"/><circle r="2" fill="#fff8d0"/></g></svg>`,
+  // Asmi (layered ribbon sweet)
+  `<svg width="36" height="22" viewBox="0 0 36 22" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="6" width="34" height="5" rx="2.5" fill="#c97a00"/><rect x="1" y="4" width="34" height="5" rx="2.5" fill="#e8a800"/><rect x="1" y="2" width="34" height="5" rx="2.5" fill="#f5c842"/><rect x="1" y="0" width="34" height="5" rx="2.5" fill="#fff3a0"/><rect x="1" y="13" width="34" height="5" rx="2.5" fill="#e8a800"/><rect x="1" y="15" width="34" height="5" rx="2.5" fill="#c97a00"/></svg>`,
+];
+
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'treat';
+  p.innerHTML = treatSVGs[i % treatSVGs.length];
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.animationDuration = (7 + Math.random() * 10) + 's';
+  p.style.animationDelay = (-Math.random() * 14) + 's';
+  p.style.transform = `scale(${0.7 + Math.random() * 0.7})`;
+  document.body.appendChild(p);
+}
 </script>
 
 <div class="main">
