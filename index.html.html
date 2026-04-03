@@ -463,22 +463,29 @@ body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(-
 
 <script>
   // ✅ FIXED: savePlayer uses supabaseClient correctly
-  async function savePlayer(result) {
-    const { data, error } = await supabaseClient
-      .from('players')
-      .insert([{
-        Name: playerName,
-        Phone: playerPhone,
-        Qualified: result,
-        played_at: new Date().toISOString()
-      }]);
+async function savePlayer(result) {
+  const { data, error } = await supabaseClient
+    .from('players')
+    .insert([{
+      Name: playerName,
+      Phone: playerPhone,
+      Qualified: result,
+      played_at: new Date().toISOString()
+    }]);
 
-    if (error) {
-      console.error('❌ Supabase save error:', error.message);
+  if (error) {
+    console.error('❌ Supabase save error:', error.message);
+
+    if (error.message.toLowerCase().includes('duplicate') || error.code === '23505') {
+      alert('This mobile number has already been used to play.');
     } else {
-      console.log('✅ Player saved:', playerName, '| Qualified:', result);
+      alert('Something went wrong while saving player data.');
     }
+    return;
   }
+
+  console.log('✅ Player saved:', playerName, '| Qualified:', result);
+}
 
   // State
   let playerName = '';
@@ -487,23 +494,51 @@ body { font-family: 'Poppins', sans-serif; background: var(--deep); color: var(-
   let totalChances = 3;
   let qualified = false;
 
-  function startGame() {
-    const name = document.getElementById('playerName').value.trim();
-    const phone = document.getElementById('playerPhone').value.trim();
-    if (!name) { alert('Please enter your name! 🌸'); return; }
-    if (!/^0[0-9]{9}$/.test(phone)) { alert('Please enter a valid 10-digit mobile number starting with 0.'); return; }
-    playerName = name;
-    playerPhone = phone;
-    chancesLeft = 3;
-    qualified = false;
-    document.getElementById('formCard').style.display = 'none';
-    document.getElementById('gameSection').style.display = 'block';
-    document.getElementById('playerDisplay').textContent = '👋 Welcome, ' + playerName + '!';
-    updateChancesDisplay();
-    renderPips();
-    initDice();
-    spawnConfetti(8);
+  async function startGame() {
+  const name = document.getElementById('playerName').value.trim();
+  const phone = document.getElementById('playerPhone').value.trim();
+
+  if (!name) {
+    alert('Please enter your name! 🌸');
+    return;
   }
+
+  if (!/^0[0-9]{9}$/.test(phone)) {
+    alert('Please enter a valid 10-digit mobile number starting with 0.');
+    return;
+  }
+
+  // Check whether this phone number already exists
+  const { data, error } = await supabaseClient
+    .from('players')
+    .select('Phone')
+    .eq('Phone', phone)
+    .limit(1);
+
+  if (error) {
+    console.error('❌ Error checking phone number:', error.message);
+    alert('Something went wrong. Please try again.');
+    return;
+  }
+
+  if (data && data.length > 0) {
+    alert('This mobile number has already been used to play.');
+    return;
+  }
+
+  playerName = name;
+  playerPhone = phone;
+  chancesLeft = 3;
+  qualified = false;
+
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('gameSection').style.display = 'block';
+  document.getElementById('playerDisplay').textContent = '👋 Welcome, ' + playerName + '!';
+  updateChancesDisplay();
+  renderPips();
+  initDice();
+  spawnConfetti(8);
+}
 
   function updateChancesDisplay() {
     document.getElementById('chancesDisplay').textContent =
