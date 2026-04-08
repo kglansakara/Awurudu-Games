@@ -526,10 +526,10 @@ if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return;
   }
 
-  if (!/^0[0-9]{9}$/.test(phone)) {
-    alert('Please enter a valid 10-digit mobile number starting with 0.');
-    return;
-  }
+  if (phone && !/^0[0-9]{9}$/.test(phone)) {
+  alert('Please enter a valid 10-digit mobile number starting with 0.');
+  return;
+}
 // Check duplicates only for whichever contact was provided
 if (phone) {
   const { data: phoneData, error: phoneError } = await supabaseClient
