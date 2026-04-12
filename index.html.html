@@ -618,7 +618,7 @@ playerEmail = email;
 
   function finalRoll() {
     const vals = [Math.ceil(Math.random()*6), Math.ceil(Math.random()*6), Math.ceil(Math.random()*6)];
-    if (Math.random() < 0.03) { vals[1] = vals[0]; vals[2] = vals[0]; }
+    if (Math.random() < 0.07) { vals[1] = vals[0]; vals[2] = vals[0]; }
     const isMatch = vals[0]===vals[1] && vals[1]===vals[2];
     const dice = [0,1,2].map(i => document.getElementById('die'+i));
     dice.forEach((d,i) => { d.classList.remove('rolling'); renderDie(d, vals[i], isMatch); });
